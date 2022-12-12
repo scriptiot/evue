@@ -24,10 +24,13 @@ python setup.py install # also `pip install ."
 
 ## Getting started
 
++ evue_website
+
 ```python
 cd examples
-python evuebroswer.py ./
+python evuebroswer.py ./evue_website/project.json
 ```
+
 
 ## Contact
 
