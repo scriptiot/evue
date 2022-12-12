@@ -3,9 +3,15 @@
 #### Evue is the fastest way to build apps in Python or Javascript on windows/linux/macos/ios/andriod/rtos! Write once, run everywhere! .
 
 ## Content
-1. [Installation](#Installation)
-2. [Usage](#Usage)
-3. [Contribute](#Contribute)
+1. [Features](#Features)
+2. [Installation](#Installation)
+3. [Usage](#Usage)
+4. [Contribute](#Contribute)
+
+## Features
+
+![brief](doc/images/brief.png)
+
 
 ## Installation
 Use the package manager [pip](https://github.com/scriptiot/evue) to install pyminio.
