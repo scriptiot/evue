@@ -1,0 +1,371 @@
+<html>
+<div class="rootContainer">
+    <column alignment="center" horizontal-alignment="center">
+        <div class="loginContainer">
+            <column spacing="5" alignment="start"  horizontal-alignment="center" scroll="auto">
+                <div height="25"></div>
+                <image src="image/website/logo.png" tooltip="web"></image>
+                <text class="h20" value="Write once, run everywhere"></text>
+                <text class="h20" value="The fastest way to build apps in Python or Javascript!"></text>
+                <div alignment="center" style="padding: 5px;" scale="0.64">
+                    <row  spacing="5" alignment="center" wrap="true">
+                        <image class="titleImage" src="image/website/windows.png" tooltip="windows"></image>
+                        <image class="titleImage" src="image/website/linux.png" tooltip="linux"></image>
+                        <image class="titleImage" src="image/website/mac.png" tooltip="mac"></image>
+                        <image class="titleImage" src="image/website/ios.png" tooltip="ios"></image>
+                        <image class="titleImage" src="image/website/android.png" tooltip="android"></image>
+                        <image class="titleImage" src="image/website/web.png" tooltip="web"></image>
+                        <image class="titleImage" src="image/website/iot.png" tooltip="iot"></image>
+                    </row>
+                </div>
+                <div height="10"></div>
+                <textfield class="textfield" id="emailTextfield" keyboard_type="email" hint_text="Please enter right email address"  label="Email" border="underline" suffix_icon="icons.EMAIL"></textfield>
+                <div height="10"></div>
+                <textfield class="textfield" id="verifyCodeTextfield" keyboard_type="number" hint_text="Please enter right email verify code"  label="Verify code" border="underline" suffix_icon="icons.NUMBER"></textfield>
+                <div height="10"></div>
+                <textfield class="textfield" id="passwordTextfield" hint_text="password length must >=8" label="Password" border="underline" password="true" can_reveal_password="true"></textfield>
+                <div height="10"></div>
+                <textfield class="textfield" id="passwordTextfield2" hint_text="password length must >=8" label="Password" border="underline" password="true" can_reveal_password="true"></textfield>
+                <div height="10"></div>
+                <row alignment="center" expand="true">
+                    <button id="registerButton" href="evue_login" :value="registerButtonText" width="320" onclick="onRegisterClick"></button>
+                </row>
+                <div height="20"></div>
+                <row alignment="center" expand="true">
+                    <text class="h20" :value="errormsg"></text>
+                </row>
+            </column>
+            <button class="verfiyButton" value="verify" onclick="onVerfiyClick"></button>
+            <switch class="switch" :tooltip="theme" onValueChanged="onThemeChanged"></switch>
+            <iconbutton class="loginRegisterButton" tooltip="switch to login" icon="icons.COMPARE_ARROWS_OUTLINED" onclick="onLoginRegisterButtonclick"></iconbutton>
+            <text class="loginRegisterText" value="Login?" onclick="onLoginRegisterButtonclick"></text>
+        </div>
+        <div class="contactContainer" alignment="center">
+            <column alignment="center" horizontal-alignment="center">
+                <div height="20"></div>
+                <row  spacing="64" alignment="center" wrap="true">
+                    <image src="image/website/dragondjf.jpg" style="width: 128px; height:128px;"></image>
+                    <image src="image/website/QQ.jpg" style="width: 128px; height:128px;"></image>
+                </row>
+                <text class="h16" value="If there is a need for cooperation, please add wechat"></text>
+            </column>
+        </div>
+    </column>
+</div>
+
+</html>
+
+<script>
+    export default {
+        data: {
+            registerButtonText: 'register',
+            theme: "theme",
+            errormsg: ""
+        },
+
+        onInit() {
+        },
+
+        onReady() {   
+        },
+
+        onShow() {
+        },
+
+        onHide() {
+        },
+
+        onQuit(){
+        }
+    }
+
+</script>
+
+<python>
+from loguru import logger
+
+class UserComponent(object):
+
+    def __init__(self, sessionID=None):
+        super().__init__(sessionID=sessionID)
+        self.isRegister = False
+        self.isVerfiyed = False
+        self.verify_code = None
+
+    def onInit(self):
+        pass
+
+    def onReady(self):
+        pass
+
+    def onShow(self):
+        if 'isRegister' in self.pageinfo:
+            self.isRegister = self.pageinfo['isRegister']
+
+        registerButton_element = self.getElementById("registerButton")
+        if self.isRegister:
+            self.registerButtonText = "register"
+        else:
+            self.registerButtonText = "reset password"
+
+    def onHide(self):
+        pass
+
+    def onQuit(self):
+        pass
+
+    def onclick(self, element):
+        self.router.push({
+            "path": "evue_designer"
+        })
+    
+    def onThemeChanged(self, element):
+        if element.value:
+            self.page.theme_mode = "dark"
+        else:
+            self.page.theme_mode = "light"
+        self.page.update()
+
+    def onTitleClick(self, element):
+        if element.href.startswith("http"):
+            self.page.launch_url(element.href)
+        else:
+            self.router.push({"path": element.href})
+    
+    def onLoginRegisterButtonclick(self, element):
+        self.router.replace({"path": "evue_login"})
+
+    def checkEmail(self, email):
+        ret, verify_code = self.page.verify_email(email)
+        return ret, verify_code
+
+    def onVerfiyClick(self, element):
+        email_element = self.getElementById("emailTextfield")
+        email = email_element.value
+        if len(email) == 0:
+            self.showMessage("Password input email!")
+            return
+
+        isEmailExisted, verify_code = self.checkEmail(email)
+        if isEmailExisted:
+            self.showMessage("Email has been sent to your mailbox, please check!")
+            self.isVerfiyed = True
+            self.verify_code = verify_code
+            email_element = self.getElementById("emailTextfield")
+            email_element.color = None
+        else:
+            self.showMessage("Please input your right email !")
+
+    def onRegisterClick(self, element):
+        if self.isVerfiyed == False:
+            email_element = self.getElementById("emailTextfield")
+            email_element.color = "red"
+            self.showMessage("Please verify your email first, thanks!")
+            return
+
+        email_element = self.getElementById("emailTextfield")
+        verifyCodeElement = self.getElementById("verifyCodeTextfield")
+        password_element = self.getElementById("passwordTextfield")
+        password_element2 = self.getElementById("passwordTextfield2")
+        email = email_element.value
+        verifyCode = verifyCodeElement.value
+        password = password_element.value
+        password2 = password_element2.value
+
+        if verifyCode != self.verify_code:
+            self.showMessage("Please input right verify code, thanks!")
+            return
+
+        if len(email) == 0:
+            self.showMessage("Password input email!")
+            return
+        
+        if len(verifyCode) == 0:
+            self.showMessage("Please input verify code!")
+            return
+        
+        if len(password) == 0 or len(password2) == 0:
+            self.showMessage("Please input password!")
+            return
+
+        if len(password) < 8 or len(password2) < 8:
+            self.showMessage("Password length must >=8!")
+            return
+        if password != password2:
+            self.showMessage("Please input the same password!")
+            return
+
+        if len(str(verifyCode)) != 6:
+            self.showMessage("Please input the right verify code!")
+            return
+
+        def push():
+            self.router.push({"path": element.href})
+
+        if self.isRegister:
+            self.emit("designer.register", email, password, push)
+        else:
+            self.emit("designer.changepassword", email, password, push)
+
+</python>
+
+<style>
+    .rootContainer {
+        margin: 0px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border: 0px;
+        border-color: transparent;
+        border-radius: 0px;
+    }
+
+    .switch{
+        top: 10px;
+        right: 10px;
+        width: 64px;
+    }
+
+    .loginContainer{
+        width:550px;
+        height: 640px;
+        border-radius: 12px;
+        border-width: 5px;
+        border-color: #efefef;
+        border-radius: 10px;
+        background-color: transparent;
+    }
+
+    .textfield{
+        width: 320px;
+        font-size: 14px;
+        background-color: transparent;
+    }
+
+    .navLink{
+        width:100px;
+        height: 40px;
+        border-bottom: 2px;
+        border-bottom-color: green;
+    }
+
+    .titleImage{
+        width:64px;
+        height: 64px;
+    }
+
+    .titleIcon{
+        width:64px;
+        height: 64px;
+        size: 48px;
+    }
+
+    .titlebarContaner0{
+        padding: 5px;
+        height: 60px;
+        background-color: transparent;
+        border: 0px;
+        border-color: transparent;
+        align-items: right;
+    }
+
+    .titlebarContaner1{
+        background-color: transparent;
+        border: 0px;
+        border-color: transparent;
+        align-items: center;
+    }
+
+    .h54{
+        font-size: 54px;
+        text-align: center;
+    }
+
+    .h44{
+        font-size: 44px;
+        text-align: center;
+    }
+
+    .h20{
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .titlebarContaner2{
+        height: 500px;
+        background-color: transparent;
+        border: 1px;
+        border-color: white;
+    }
+
+    .titlebarContaner3{
+        height: 200px;
+        background-color: transparent;
+        border: 1px;
+        border-color: white;
+    }
+    .featuresContaner{
+        padding-top: 20px;
+        background-color: transparent;
+    }
+
+    .featurePanel{
+        padding: 10px;
+        width: 300px;
+        height: 300px;
+        border-width: 5px;
+        border-color: #efefef;
+        border-radius: 10px;
+        background-color: transparent;
+    }
+
+    .h28{
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .h2{
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .h20{
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .h16{
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .contactContainer{
+        height: 128px;
+    }
+
+    .footer{
+        height: 100px;
+    }
+
+    .verfiyButton{
+        top: 265px;
+        right: 10px;
+        width: 90px;
+    }
+
+    .loginRegisterButton{
+        left: 10px;
+        top: 10px;
+    }
+
+    .loginRegisterText{
+        left: 50px;
+        top: 18px;
+        weight: bold;
+        italic: true;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+        border-bottom: 1px;
+        border-bottom-color: #bfbfbf;
+    }
+</style>

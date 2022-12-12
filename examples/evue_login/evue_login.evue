@@ -1,0 +1,315 @@
+<html>
+<div class="rootContainer">
+    <column alignment="center" horizontal-alignment="center">
+        <div class="loginContainer">
+            <column spacing="5" alignment="start"  horizontal-alignment="center" scroll="auto">
+                <div height="40"></div>
+                <image src="image/website/logo.png" tooltip="web"></image>
+                <text class="h20" value="Write once, run everywhere"></text>
+                <text class="h20" value="The fastest way to build apps in Python or Javascript!"></text>
+                <div height="20"></div>
+                <div alignment="center" style="padding: 5px;" scale="0.64">
+                    <row  spacing="5" alignment="center" wrap="true">
+                        <image class="titleImage" src="image/website/windows.png" tooltip="windows"></image>
+                        <image class="titleImage" src="image/website/linux.png" tooltip="linux"></image>
+                        <image class="titleImage" src="image/website/mac.png" tooltip="mac"></image>
+                        <image class="titleImage" src="image/website/ios.png" tooltip="ios"></image>
+                        <image class="titleImage" src="image/website/android.png" tooltip="android"></image>
+                        <image class="titleImage" src="image/website/web.png" tooltip="web"></image>
+                        <image class="titleImage" src="image/website/iot.png" tooltip="iot"></image>
+                    </row>
+                </div>
+                <textfield class="textfield" id="emailTextfield" keyboard_type="email" hint_text="Please enter right email address"  label="Email" border="underline" suffix_icon="icons.EMAIL" :value="email"></textfield>
+                <div height="10"></div>
+                <textfield class="textfield" id="passwordTextfield" hint_text="password length must >=8" label="Password" border="underline" password="true" can_reveal_password="true" :value="password"></textfield>
+                <div height="20"></div>
+                <row alignment="center" expand="true">
+                    <button value="login" width="320" onclick="onLoginClick"></button>
+                </row>
+            </column>
+            <switch class="switch" :tooltip="en.theme" onValueChanged="onThemeChanged"></switch>
+            <iconbutton class="loginRegisterButton" tooltip="switch to register" icon="icons.COMPARE_ARROWS_OUTLINED" onclick="onLoginRegisterButtonclick"></iconbutton>
+            <text class="loginRegisterText" value="Register?" onclick="onLoginRegisterButtonclick"></text>
+            <text class="forgetText" value="forget password" onclick="onForgetTextClick"></text>
+        </div>
+        <div class="contactContainer" alignment="center">
+            <column alignment="center" horizontal-alignment="center">
+                <div height="20"></div>
+                <row  spacing="64" alignment="center" wrap="true">
+                    <image src="image/website/dragondjf.jpg" style="width: 128px; height:128px;"></image>
+                    <image src="image/website/QQ.jpg" style="width: 128px; height:128px;"></image>
+                </row>
+                <text class="h16" value="If there is a need for cooperation, please add wechat"></text>
+            </column>
+        </div>
+    </column>
+</div>
+
+</html>
+
+<script>
+    export default {
+        data: {
+            en: {
+                doc: "doc",
+                login: "login",
+                theme: "theme",
+                language: "english"
+            },
+            zh: {
+                doc: "文档",
+                login: "登录",
+                theme: "主题",
+                language: "中文"
+            },
+            email: '',
+            password: '',
+        },
+
+        onInit() {
+        },
+
+        onReady() {   
+        },
+
+        onShow() {
+        },
+
+        onHide() {
+        },
+
+        onQuit(){
+        }
+    }
+
+</script>
+
+<python>
+from loguru import logger
+
+class UserComponent(object):
+
+    def __init__(self, sessionID=None):
+        super().__init__(sessionID=sessionID)
+
+    def onInit(self):
+        logger.warning("evue_login onInit")
+
+    def onReady(self):
+        logger.warning("evue_login onReady")
+
+    def onShow(self):
+        logger.warning("evue_login onShow")
+        logger.warning(self.pageinfo)
+
+    def onHide(self):
+        logger.warning("========evue_login onHide=========")
+
+    def onQuit(self):
+        logger.warning("========evue_login onQuit=========")
+
+    def onclick(self, element):
+        self.router.push({
+            "path": "evue_designer"
+        })
+    
+    def onThemeChanged(self, element):
+        if element.value:
+            self.page.theme_mode = "dark"
+        else:
+            self.page.theme_mode = "light"
+        self.page.update()
+
+    def setUserInfo(self, email, password):
+        self.email = email
+        self.password = password
+    
+    def onLoginRegisterButtonclick(self, element):
+        self.router.replace({"path": "evue_register", "isRegister": True})
+
+    def onForgetTextClick(self, element):
+        self.router.replace({"path": "evue_register", "isRegister": False})
+
+    def onLoginClick(self, element):
+        email_element = self.getElementById("emailTextfield")
+        password_element = self.getElementById("passwordTextfield")
+        email = email_element.value
+        password = password_element.value
+
+        if len(email) == 0:
+            self.showMessage("Email is empty!")
+            return
+        
+        if len(email) == 0:
+            self.showMessage("Password is empty!")
+            return
+
+        def push():
+            self.router.push({"path": "evue_studio"})
+
+        self.emit("designer.login", email, password, push)
+
+
+</python>
+
+<style>
+    .rootContainer {
+        margin: 0px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border: 0px;
+        border-color: transparent;
+        border-radius: 0px;
+    }
+
+    .switch{
+        top: 10px;
+        right: 10px;
+        width: 64px;
+    }
+
+    .loginContainer{
+        width:550px;
+        height: 600px;
+        border-radius: 12px;
+        border-width: 5px;
+        border-color: #efefef;
+        border-radius: 10px;
+        background-color: transparent;
+    }
+
+    .textfield{
+        width: 320px;
+        font-size: 14px;
+        background-color: transparent;
+    }
+
+    .navLink{
+        width:100px;
+        height: 40px;
+        border-bottom: 2px;
+        border-bottom-color: green;
+    }
+
+    .titleImage{
+        width:64px;
+        height: 64px;
+    }
+
+    .titleIcon{
+        width:64px;
+        height: 64px;
+        size: 48px;
+    }
+
+    .titlebarContaner0{
+        padding: 5px;
+        height: 60px;
+        background-color: transparent;
+        border: 0px;
+        border-color: transparent;
+        align-items: right;
+    }
+
+    .titlebarContaner1{
+        background-color: transparent;
+        border: 0px;
+        border-color: transparent;
+        align-items: center;
+    }
+
+    .h54{
+        font-size: 54px;
+        text-align: center;
+    }
+
+    .h44{
+        font-size: 44px;
+        text-align: center;
+    }
+
+    .h20{
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .titlebarContaner2{
+        height: 500px;
+        background-color: transparent;
+        border: 1px;
+        border-color: white;
+    }
+
+    .titlebarContaner3{
+        height: 200px;
+        background-color: transparent;
+        border: 1px;
+        border-color: white;
+    }
+    .featuresContaner{
+        padding-top: 20px;
+        background-color: transparent;
+    }
+
+    .featurePanel{
+        padding: 10px;
+        width: 300px;
+        height: 300px;
+        border-width: 5px;
+        border-color: #efefef;
+        border-radius: 10px;
+        background-color: transparent;
+    }
+
+    .h28{
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .h2{
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .h20{
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .h16{
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .contactContainer{
+        height: 128px;
+    }
+
+    .footer{
+        height: 100px;
+    }
+
+    .loginRegisterButton{
+        left: 10px;
+        top: 10px;
+    }
+
+    .loginRegisterText{
+        left: 50px;
+        top: 18px;
+        weight: bold;
+        italic: true;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+        border-bottom: 1px;
+        border-bottom-color: #bfbfbf;
+    }
+
+    .forgetText{
+        right: 10px;
+        bottom: 10px;
+        color: red;
+        font-size: 16px;
+    }
+</style>
