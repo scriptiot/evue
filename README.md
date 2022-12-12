@@ -14,7 +14,7 @@
 
 
 ## Installation
-Use the package manager [pip](https://github.com/scriptiot/evue) to install pyminio.
+Use the package manager [pip](https://github.com/scriptiot/evue) to install evue.
 
 ```bash
 pip install evue
@@ -29,15 +29,7 @@ python setup.py install # also `pip install ."
 
 
 ## Usage
-Use the package manager [pip](https://pypi.org/project/pyminio/) to install pyminio.
 
-```bash
-pip install evue
-```
 
 ## Contribute
-Use the package manager [pip](https://pypi.org/project/pyminio/) to install pyminio.
 
-```bash
-pip install evue
-```
