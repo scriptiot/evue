@@ -20,7 +20,7 @@ def onAppInit(config):
 if __name__ == '__main__':
     globalThis.onAppInit = onAppInit
     if len(sys.argv) == 1:
-        startApp("./start.json")
+        startApp("./project.json")
     else:
         startApp(sys.argv[1])
 

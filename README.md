@@ -22,11 +22,12 @@ cd evue
 python setup.py install # also `pip install ."
 ```
 
-
 ## Getting started
 
-
-
+```python
+cd examples
+python evuebroswer.py 
+```
 
 ## Contact
 

@@ -128,8 +128,16 @@ class EvueApplication(object):
             self.closeCallback()
 
 def startApp(path: str, closeCallback=None, threaded=False):
-    with open(path, "r", encoding="utf-8") as f:
-        kwargs = json.load(f)
+    kwargs ={
+        "assets_dir": "./",
+        "view": "desktop",
+        "web_renderer": "canvas",
+        "dir": "./"
+    }
+    if os.path.exists(path) and path.endswith(".json"):
+        with open(path, "r", encoding="utf-8") as f:
+            kwargs.update(json.load(f))
+
     globalThis.rootcwd = os.getcwd()
     if 'assets_dir' in kwargs:
         assets_dir = os.path.normpath(os.path.abspath(kwargs['assets_dir']))
@@ -175,15 +183,14 @@ def startApp(path: str, closeCallback=None, threaded=False):
             t.daemon = True
             t.start()
 
-    if "dir" in kwargs:
-        projectDir = kwargs["dir"]
-        if os.path.exists(projectDir):
-            loaded = True
-            t = Thread(target=startFileServer, args=(globalThis.port, globalThis.assets_dir))
-            t.daemon = True
-            t.start()
-            apppy = "%s/app.py" % (projectDir)
-            loadApp(apppy)
+    projectDir = kwargs["dir"]
+    if os.path.exists(projectDir):
+        loaded = True
+        t = Thread(target=startFileServer, args=(globalThis.port, globalThis.assets_dir))
+        t.daemon = True
+        t.start()
+        apppy = "%s/app.py" % (projectDir)
+        loadApp(apppy)
 
     if loaded:
         sapp = EvueApplication(closeCallback)
