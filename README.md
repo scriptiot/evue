@@ -24,11 +24,18 @@ python setup.py install # also `pip install ."
 
 ## Getting started
 
-+ evue_website
++ [evue_website](https://github.com/scriptiot/evue/tree/master/examples/evue_website)
 
 ```python
 cd examples
 python evuebroswer.py ./evue_website/project.json
+```
+
++ [evue_login](https://github.com/scriptiot/evue/tree/master/examples/evue_login)
+
+```python
+cd examples
+python evuebroswer.py ./evue_login/project.json
 ```
 
 
