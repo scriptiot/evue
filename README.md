@@ -26,11 +26,11 @@ python setup.py install # also `pip install ."
 ## Getting started
 
 
+
+
 ## Contact
 
-> If there is a need for cooperation, please add wechat
+> If there is a need for cooperation, please send email or add wechat !
 
 + Email : ding465398889@163.com
 + 微信： dragondjf
-
-## 

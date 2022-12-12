@@ -68,7 +68,7 @@ class EvueApplication(object):
         if url_prefix is not None:
             print(url_prefix, conn.page_url)
         else:
-            logger.warning(f"App URL: {conn.page_url}")
+            logger.info(f"App URL: {conn.page_url}")
 
         logger.info("Connected to Flet app and handling user sessions...")
 
@@ -93,7 +93,7 @@ class EvueApplication(object):
             terminate = threading.Event()
 
             def exit_gracefully(signum, frame):
-                logger.warning("Gracefully terminating Flet app...")
+                logger.info("Gracefully terminating Flet app...")
                 terminate.set()
 
             signal.signal(signal.SIGINT, exit_gracefully)
@@ -109,7 +109,7 @@ class EvueApplication(object):
         self.close()
 
     def close(self):
-        logger.warning("close app!")
+        logger.info("close app!")
         if self.pflet:
             self.pflet.terminate()
             self.pflet = None
@@ -119,7 +119,7 @@ class EvueApplication(object):
 
         if self.pflet is not None and not is_windows():
             try:
-                logger.warning(f"Flet View process {self.pflet.pid}")
+                logger.info(f"Flet View process {self.pflet.pid}")
                 os.kill(self.pflet.pid + 1, signal.SIGKILL)
             except:
                 pass
@@ -127,7 +127,7 @@ class EvueApplication(object):
         if self.closeCallback:
             self.closeCallback()
 
-def startApp(path: str, closeCallback=None):
+def startApp(path: str, closeCallback=None, threaded=False):
     with open(path, "r", encoding="utf-8") as f:
         kwargs = json.load(f)
     globalThis.rootcwd = os.getcwd()
@@ -189,9 +189,12 @@ def startApp(path: str, closeCallback=None):
         sapp = EvueApplication(closeCallback)
         globalThis.evueApp = sapp
         kwargs['target'] = main
-        logger.warning(kwargs)
-        t = Thread(target=sapp.startFlet, kwargs=kwargs)
-        t.daemon = True
-        t.start()
+        logger.info(kwargs)
+        if threaded:
+            t = Thread(target=sapp.startFlet, kwargs=kwargs)
+            t.daemon = True
+            t.start()
+        else:
+            sapp.startFlet(**kwargs)
     else:
         logger.error("app loaded failed")
