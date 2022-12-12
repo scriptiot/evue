@@ -1,0 +1,21 @@
+{
+    "view": "desktop",
+    "host": "0.0.0.0",
+    "port": 12000,
+    "web_renderer": "canvas",
+    "assets_dir": "E:\\workspace\\watchspace6\\evue_designer\\eui\\evue_projects\\evue_watch13",
+    "name": "evue_watch13",
+    "entry": "evue_demo",
+    "width": 720,
+    "height": 480,
+    "version": "1.0",
+    "dir": "E:\\workspace\\watchspace6\\evue_designer\\eui\\evue_projects\\evue_watch13",
+    "pages": [
+        "evue_demo"
+    ],
+    "resources": {
+        "images": [
+            "image/evue.png"
+        ]
+    }
+}
