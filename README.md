@@ -1,12 +1,7 @@
 # evue
 
-#### Evue is the fastest way to build apps in Python or Javascript on windows/linux/macos/ios/andriod/rtos! Write once, run everywhere! .
+> Evue is the fastest way to build apps in Python or Javascript on windows/linux/macos/ios/andriod/rtos! Write once, run everywhere! .
 
-## Content
-1. [Features](#Features)
-2. [Installation](#Installation)
-3. [Usage](#Usage)
-4. [Contribute](#Contribute)
 
 ## Features
 
@@ -28,8 +23,14 @@ python setup.py install # also `pip install ."
 ```
 
 
-## Usage
+## Getting started
 
 
-## Contribute
+## Contact
 
+> If there is a need for cooperation, please add wechat
+
++ Email : ding465398889@163.com
++ 微信： dragondjf
+
+## 
