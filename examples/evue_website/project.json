@@ -1,0 +1,8 @@
+{
+    "assets_dir": "./",
+    "host": null,
+    "port": null,
+    "view": "desktop",
+    "web_renderer": "canvas",
+    "dir": "./evue_website"
+}

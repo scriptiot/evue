@@ -1,0 +1,303 @@
+<html>
+<div class="rootContainer">
+    <column spacing="5" alignment="start" scroll="auto">
+        <div class="titlebarContaner0">
+            <row spacing="0" alignment="right">
+                <text class="navLink" :value="en.doc"  href="https://www.yuque.com/dragondjf/ltn95z/krmcxd" onclick="onTitleClick"></text>
+                <switch style="width: 64px;" :tooltip="en.theme" onValueChanged="onThemeChanged"></switch>
+                <div style="width: 1px;"></div>
+                <image class="titleImage" href="https://github.com/scriptiot" src="image/website/github.png" tooltip="github" onclick="onTitleClick"></image>
+                <image class="titleImage" href="https://gitee.com/scriptiot" src="image/website/gitee.png" scale="0.9" tooltip="gitee" onclick="onTitleClick"></image>
+                <button  href="evue_register" value="register" width="100" onclick="onTitleClick"></button>
+                <div width="10"></div>
+                <button  href="evue_login" value="login" width="100" onclick="onTitleClick"></button>
+                <icon class="titleIcon" name="icons.SUPERVISED_USER_CIRCLE_OUTLINED" :tooltip="en.language"></icon>
+            </row>
+        </div>
+        <div class="titlebarContaner1">
+            <column>
+                <text class="h54" value="EVUE"></text>
+                <text class="h44" value="Full Platform Framework"></text>
+                <text class="h20" value="Write once, run everywhere"></text>
+                <text class="h20" value="The fastest way to build apps in Python or Javascript!"></text>
+                <div alignment="center" style="padding: 5px;">
+                    <row  spacing="5" alignment="center" wrap="true">
+                        <image class="titleImage" src="image/website/windows.png" tooltip="windows"></image>
+                        <image class="titleImage" src="image/website/linux.png" tooltip="linux"></image>
+                        <image class="titleImage" src="image/website/mac.png" tooltip="mac"></image>
+                        <image class="titleImage" src="image/website/ios.png" tooltip="ios"></image>
+                        <image class="titleImage" src="image/website/android.png" tooltip="android"></image>
+                        <image class="titleImage" src="image/website/web.png" tooltip="web"></image>
+                        <image class="titleImage" src="image/website/iot.png" tooltip="iot"></image>
+                    </row>
+                </div>
+            </column>
+        </div>
+        <div class="featuresContaner">
+            <column alignment="center">
+                <text class="h28" value="Main features"></text>
+                <div alignment="center">
+                    <row spacing="5" alignment="center" wrap="true">
+                        <div class="featurePanel">
+                            <column horizontal-alignment="center">
+                                <image class="titleImage" src="image/website/html.png" tooltip="web"></image>
+                                <text class="h20" value="HTML/CSS"></text>
+                                <text class="h16" value="Base on html and css , no more complex architecture with JavaScript frontend, REST API backend, database, cache, etc"></text>
+                            </column>
+                        </div>
+                        <div class="featurePanel">
+                            <column horizontal-alignment="center">
+                                <image class="titleImage" src="image/website/os.png" tooltip="platform independence"></image>
+                                <text class="h20" value="platform independence"></text>
+                                <text class="h16" value="Evue framework is platform independence;you can run evue app on windows/linux/macos/ios/android/rtos!"></text>
+                            </column>
+                        </div>
+                        <div class="featurePanel">
+                            <column horizontal-alignment="center">
+                                <image class="titleImage" src="image/website/platform.png" tooltip="web"></image>
+                                <text class="h20" value="Write once, run everywhere;"></text>
+                                <text class="h16" value="Deploy evue app as a web app and view it in a browser. Package it as a standalone desktop app for Windows, macOS, Linux and RTOS. Install it on mobile as PWA or view via evue app for iOS and Android."></text>
+                            </column>
+                        </div>
+                    </row>
+                </div>
+                <div alignment="center">
+                    <row spacing="5" alignment="center" wrap="true">
+                        <div class="featurePanel">
+                            <column horizontal-alignment="center">
+                                <image class="titleImage" src="image/website/bolt.png" tooltip="web"></image>
+                                <text class="h20" value="Native performance"></text>
+                                <text class="h16" value="Evue is powered on Futter/LVGL, you can get native performance for all platform!"></text>
+                            </column>
+                        </div>
+                        <div class="featurePanel">
+                            <column horizontal-alignment="center">
+                                <image class="titleImage" src="image/website/component.png" tooltip="web"></image>
+                                <text class="h20" value="Component programming"></text>
+                                <text class="h16" value="Every evue file is an independent and reusable component, so you can design your own component framework based on evue!"></text>
+                            </column>
+                        </div>
+                        <div class="featurePanel">
+                            <column horizontal-alignment="center">
+                                <image src="image/website/logo.png" tooltip="web"></image>
+                                <text class="h20" value="Low code designer"></text>
+                                <text class="h16" value="Evue designer is a low code designer for evue developer, you can drag and drop widget to develop evue app! From idea to app in minutes!"></text>
+                            </column>
+                        </div>
+                    </row>
+                </div>
+            </column>
+        </div>
+        <div class="contactContainer" alignment="center">
+            <column alignment="center" horizontal-alignment="center">
+                <text class="h28" value="Contact us"></text>
+                <row  spacing="5" alignment="center" wrap="true">
+                    <image src="image/website/dragondjf.jpg" style="width: 256px; height:256px;"></image>
+                    <image src="image/website/QQ.jpg" style="width: 256px; height:256px;"></image>
+                </row>
+            </column>
+        </div>
+        <div class="footer">
+            <text class="h20" value="Copyright © 2022 Evue Group. Built with evue framework."></text>
+        </div>
+    </column>
+</div>
+
+</html>
+
+<script>
+    export default {
+        data: {
+            en: {
+                doc: "doc",
+                login: "login",
+                theme: "theme",
+                language: "english"
+            },
+            zh: {
+                doc: "文档",
+                login: "登录",
+                theme: "主题",
+                language: "中文"
+            }
+        },
+
+        onInit() {
+        },
+
+        onReady() {   
+        },
+
+        onShow() {
+        },
+
+        onHide() {
+        },
+
+        onQuit(){
+        }
+    }
+
+</script>
+
+<python>
+from loguru import logger
+
+class UserComponent(object):
+
+    def __init__(self, sessionID=None):
+        super().__init__(sessionID=sessionID)
+
+    def onInit(self):
+        logger.warning("evue_website onInit")
+
+    def onReady(self):
+        logger.warning("evue_website onReady")
+
+    def onShow(self):
+        logger.warning("evue_website onShow")
+        logger.warning(self.pageinfo)
+
+    def onHide(self):
+        logger.warning("========evue_appstore onHide=========")
+
+    def onQuit(self):
+        pass
+
+    def onclick(self, element):
+        self.router.push({
+            "path": "evue_designer"
+        })
+    
+    def onThemeChanged(self, element):
+        if element.value:
+            self.page.theme_mode = "dark"
+        else:
+            self.page.theme_mode = "light"
+        self.page.update()
+
+    def onTitleClick(self, element):
+        pass
+
+</python>
+
+<style>
+    .rootContainer {
+        margin: 0px;
+        padding-left: 10px;
+        padding-right: 10px;
+        left: 0px;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        background-color: transparent;
+        border: 0px;
+        border-color: transparent;
+        border-radius: 0px;
+    }
+
+    .navLink{
+        width:100px;
+        height: 40px;
+        border-bottom: 2px;
+        border-bottom-color: green;
+    }
+
+    .titleImage{
+        width:64px;
+        height: 64px;
+    }
+
+    .titleIcon{
+        width:64px;
+        height: 64px;
+        size: 48px;
+    }
+
+    .titlebarContaner0{
+        padding: 5px;
+        height: 60px;
+        background-color: transparent;
+        border: 0px;
+        border-color: transparent;
+        align-items: right;
+    }
+
+    .titlebarContaner1{
+        background-color: transparent;
+        border: 0px;
+        border-color: transparent;
+        align-items: center;
+    }
+
+    .h54{
+        font-size: 54px;
+        text-align: center;
+    }
+
+    .h44{
+        font-size: 44px;
+        text-align: center;
+    }
+
+    .h20{
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .titlebarContaner2{
+        height: 500px;
+        background-color: transparent;
+        border: 1px;
+        border-color: white;
+    }
+
+    .titlebarContaner3{
+        height: 200px;
+        background-color: transparent;
+        border: 1px;
+        border-color: white;
+    }
+    .featuresContaner{
+        padding-top: 20px;
+        background-color: transparent;
+    }
+
+    .featurePanel{
+        padding: 10px;
+        width: 300px;
+        height: 300px;
+        border-width: 5px;
+        border-color: #efefef;
+        border-radius: 10px;
+        background-color: transparent;
+    }
+
+    .h28{
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .h2{
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .h20{
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .h16{
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .contactContainer{
+        height: 300px;
+    }
+
+    .footer{
+        height: 100px;
+    }
+</style>
