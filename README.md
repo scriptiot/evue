@@ -54,6 +54,13 @@ cd examples
 python evuebroswer.py ./evue_login/project.json
 ```
 
+## Evue Studio
+
+> Evue Studio is a develop platform for evue developer to create/compile/deploy evue project!
+
+![designer](doc/images/designer.png)
+
+
 ## Community
 
 + [Discussions](https://github.com/scriptiot/evue/discussions)

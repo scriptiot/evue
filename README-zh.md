@@ -56,6 +56,12 @@ cd examples
 python evuebroswer.py ./evue_login/project.json
 ```
 
+## Evue Studio
+
+> Evue Studio 是一个服务开发者快速创建/编译/发布基于evue的应用的开发者平台。
+
+![designer](doc/images/designer.png)
+
 ## 社区讨论
 
 + [Discussions](https://github.com/scriptiot/evue/discussions)
