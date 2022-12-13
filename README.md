@@ -54,6 +54,11 @@ cd examples
 python evuebroswer.py ./evue_login/project.json
 ```
 
+## Community
+
++ [Discussions](https://github.com/scriptiot/evue/discussions)
++ [Issues](https://github.com/scriptiot/evue/issues)
+
 
 ## Contact
 
