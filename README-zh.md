@@ -7,7 +7,7 @@
 
 ## 框架
 
-+ Evue 机构
++ Evue 架构
 
 > Evue 是一个基于html/css的高性能的gui应用框架，与平台和ui引擎无关
 
