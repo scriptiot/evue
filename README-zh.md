@@ -2,7 +2,7 @@
 
 > Evue是使用纯python或者javascript开发跨平台（windows/linux/macos/ios/andriod/rtos）应用最快速的应用框架，一次开发，多端运行!
 
- 查看[English](https://github.com/scriptiot/evue/blob/master/README.md) for English readme.
+ 查看 [English](https://github.com/scriptiot/evue/blob/master/README.md) 英文说明.
 
 
 ## 框架
