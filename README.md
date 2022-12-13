@@ -1,6 +1,6 @@
 # evue
 
-> Evue on windows/linux/macos/ios/andriod/rtos! Write once, run everywhere! .
+> Evue is a high-performance gui framework base an html/css which can run on windows/linux/macos/ios/andriod/rtos! Write once, run everywhere! .
 
 See the [中文文档](https://github.com/scriptiot/evue/blob/master/README-zh.md) for Chinese readme.
 
