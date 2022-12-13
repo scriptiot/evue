@@ -63,6 +63,6 @@ python evuebroswer.py ./evue_login/project.json
 
 + Email : ding465398889@163.com
 + WeChat: dragondjf
-![dragondjf](doc/images/dragondjf.jpg)
+>![dragondjf](doc/images/dragondjf.jpg)
 + Evue for IOT
-![dragondjf](doc/images/QQ.jpg)
+>![dragondjf](doc/images/QQ.jpg)

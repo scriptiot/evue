@@ -13,11 +13,14 @@ See the [中文文档](https://github.com/scriptiot/evue/blob/master/README-zh.m
 
 + Evue architecture
 
+> Evue is a high-performance gui framework base an html/css which is platform independence and ui engine independence!
+
 ![evue](doc/images/evue.png)
 
 
 + Evuecompiler architecture
 
+> Evuecompiler is a compiler which compile evue file to python/javascript code!
 
 ![evuecompiler](doc/images/evuecompiler.png)
 
@@ -58,6 +61,6 @@ python evuebroswer.py ./evue_login/project.json
 
 + Email : ding465398889@163.com
 + WeChat: dragondjf
-![dragondjf](doc/images/dragondjf.jpg)
+> ![dragondjf](doc/images/dragondjf.jpg)
 + Evue for IOT
-![dragondjf](doc/images/QQ.jpg)
+> ![dragondjf](doc/images/QQ.jpg)
