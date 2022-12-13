@@ -1,12 +1,25 @@
 # evue
 
-> Evue is the fastest way to build apps in Python or Javascript on windows/linux/macos/ios/andriod/rtos! Write once, run everywhere! .
+> Evue on windows/linux/macos/ios/andriod/rtos! Write once, run everywhere! .
 
+See the [中文文档](https://github.com/scriptiot/evue/blob/master/README-zh.md) for Chinese readme.
 
 ## Features
 
 ![brief](doc/images/brief.png)
 
+
+## Framework
+
++ Evue architecture
+
+![evue](doc/images/evue.png)
+
+
++ Evuecompiler architecture
+
+
+![evuecompiler](doc/images/evuecompiler.png)
 
 ## Installation
 Use the package manager [pip](https://github.com/scriptiot/evue) to install evue.
@@ -41,7 +54,10 @@ python evuebroswer.py ./evue_login/project.json
 
 ## Contact
 
-> If there is a need for cooperation, please send email or add wechat !
+> If there is a need for cooperation, please send email/wechat/QQ for more support!
 
 + Email : ding465398889@163.com
 + WeChat: dragondjf
+![dragondjf](doc/images/dragondjf.jpg)
++ Evue for IOT
+![dragondjf](doc/images/QQ.jpg)
