@@ -71,6 +71,10 @@ python evuebroswer.py ./evue_login/app.py
 + [Discussions](https://github.com/scriptiot/evue/discussions)
 + [Issues](https://github.com/scriptiot/evue/issues)
 
+## 社区达人招募
+
++ `无论您是社区技术达人、设计师、产品经理、运营者，欢迎为evue项目贡献自己的一份力量!`
++ `如果你喜欢，请发送email到【ding465398889@163.com】或者添加微信dragondjf！`
 
 ## 联系我们
 

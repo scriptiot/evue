@@ -71,6 +71,13 @@ python evuebroswer.py ./evue_login/app.py
 + [Issues](https://github.com/scriptiot/evue/issues)
 
 
+## Contribute to this wonderful project
+
++ `Welcome to contribute to this wonderful project no matter you are a community technical talent or designer talent, or product manager talent or community operation talent, your name will be one of evue contributors!`
+
++ `if you like evue, you can send email to [ding465398889@163.com], thanks!`
+
+
 ## Contact
 
 > If there is a need for cooperation, please send email/wechat/QQ for more support!
