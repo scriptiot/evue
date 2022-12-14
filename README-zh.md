@@ -51,6 +51,8 @@ or
 python evuebroswer.py ./evue_website/app.py
 ```
 
+![xxx](doc/images/evue_website.gif)
+
 + [evue_login](https://github.com/scriptiot/evue/tree/master/examples/evue_login)
 
 ```python
