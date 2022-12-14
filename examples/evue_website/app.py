@@ -9,12 +9,21 @@ def onCreate(config):
 def onDestroy():
     logger.info("app onDestroy")
 
+globalThis.project = {
+    "assets_dir": os.path.dirname(__file__),
+    "host": None,
+    "port": None,
+    "view": "desktop",
+    "web_renderer": "canvas",
+    "dir": os.path.dirname(__file__),
+}
+
 EvueApp({
     'title': 'Evue',
     'theme_mode': 'light',
     'appDir': os.path.dirname(__file__),
+    'paths': [os.path.dirname(__file__)],
     'onCreate': onCreate,
     'onDestroy': onDestroy,
-    'paths': [os.path.dirname(__file__)],
     'uri': "evue_website",
 })

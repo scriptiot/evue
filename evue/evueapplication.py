@@ -134,9 +134,24 @@ def startApp(path: str, closeCallback=None, threaded=False):
         "web_renderer": "canvas",
         "dir": "./"
     }
+    loaded = False
+    if os.path.exists(path) and path.endswith("app.py"):
+        app = loadApp(path)
+        if app:
+            if hasattr(app, "project"):
+                kwargs.update(app.project)
+            loaded = True
+
     if os.path.exists(path) and path.endswith(".json"):
         with open(path, "r", encoding="utf-8") as f:
             kwargs.update(json.load(f))
+        projectDir = kwargs["dir"]
+        if loaded == False:
+            apppy = "%s/app.py" % (projectDir)
+            if os.path.exists(apppy):
+                app = loadApp(apppy)
+                if app:
+                    loaded = True
 
     globalThis.rootcwd = os.getcwd()
     if 'assets_dir' in kwargs:
@@ -161,13 +176,11 @@ def startApp(path: str, closeCallback=None, threaded=False):
         globalThis.port = port
         kwargs['port'] = port
 
-    loaded = False
+
     if "view" in kwargs:
         if kwargs["view"] == "desktop":
-            loaded = True
             kwargs['view'] = flet.FLET_APP
         elif kwargs["view"] == "web":
-            loaded = True
             kwargs['view']= flet.WEB_BROWSER
             if 'web_renderer' in kwargs:
                 if kwargs['web_renderer'] == "canvas":
@@ -179,18 +192,11 @@ def startApp(path: str, closeCallback=None, threaded=False):
 
             globalThis.web_renderer = kwargs['web_renderer']
 
-            t = Thread(target=startFileServer, args=(globalThis.port, globalThis.assets_dir))
-            t.daemon = True
-            t.start()
-
     projectDir = kwargs["dir"]
     if os.path.exists(projectDir):
-        loaded = True
         t = Thread(target=startFileServer, args=(globalThis.port, globalThis.assets_dir))
         t.daemon = True
         t.start()
-        apppy = "%s/app.py" % (projectDir)
-        loadApp(apppy)
 
     if loaded:
         sapp = EvueApplication(closeCallback)

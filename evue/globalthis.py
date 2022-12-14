@@ -34,9 +34,9 @@ def loadApp(path):
     if os.path.exists(path):
         d = os.path.dirname(path)
         sys.path.insert(0, d)
-        load_module(path)
-        return True
-    return False
+        module = load_module(path)
+        return module
+    return None
 
 def loadProject(path):
     if os.path.exists(path):
@@ -357,7 +357,11 @@ class globalThis(object):
 
 
 def EvueApp(config):
-    sys.path.extend(config["paths"])
+    if "paths" in config:
+        sys.path.extend(config["paths"])
+    else:
+        if "appDir" in config:
+            sys.path.extend([config["appDir"]])
     logger.warning(os.getcwd())
     def onCreate(page: Page, onAppInit=None):
         logger.warning(os.getcwd())
@@ -369,10 +373,6 @@ def EvueApp(config):
         pick_files_dialog = FilePicker()
         page.overlay.extend([pick_files_dialog])
 
-        if globalThis.project:
-            page.window_width = globalThis.project['width']
-            page.window_height = globalThis.project['height'] + 60
-
         page.window_center()
 
         for key in config:
@@ -382,6 +382,9 @@ def EvueApp(config):
         _onCreate = config['onCreate']
         config['sessionID'] = page.session_id
         config['page'] = page
+        
+        if 'dir' in globalThis.project:
+            os.chdir(globalThis.project['dir'])
 
         if 'appDir' not in config:
             config['appDir'] = globalThis.startProjectDir
