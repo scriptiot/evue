@@ -16,6 +16,7 @@ globalThis.project = {
     "view": "desktop",
     "web_renderer": "canvas",
     "dir": os.path.dirname(__file__),
+    "entry": "evue_website",
 }
 
 EvueApp({
@@ -25,5 +26,5 @@ EvueApp({
     'paths': [os.path.dirname(__file__)],
     'onCreate': onCreate,
     'onDestroy': onDestroy,
-    'uri': "evue_login",
+    'uri': globalThis.project['entry'],
 })
