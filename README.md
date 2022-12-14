@@ -6,7 +6,7 @@ See the [中文文档](https://github.com/scriptiot/evue/blob/master/README-zh.m
 
 ## Features
 
-![brief](doc/images/brief.png)
+![brief](https://github.com/scriptiot/evue/blob/master/https://github.com/scriptiot/evue/blob/master/doc/images/brief.png)
 
 
 ## Framework
@@ -15,14 +15,14 @@ See the [中文文档](https://github.com/scriptiot/evue/blob/master/README-zh.m
 
 > Evue is a high-performance gui framework base an html/css which is platform independence and ui engine independence!
 
-![evue](doc/images/evue.png)
+![evue](https://github.com/scriptiot/evue/blob/master/doc/images/evue.png)
 
 
 + Evuecompiler architecture
 
 > Evuecompiler is a compiler which compile evue file to python/javascript code!
 
-![evuecompiler](doc/images/evuecompiler.png)
+![evuecompiler](https://github.com/scriptiot/evue/blob/master/doc/images/evuecompiler.png)
 
 ## Installation
 Use the package manager [pip](https://github.com/scriptiot/evue) to install evue.
@@ -62,7 +62,7 @@ python evuebroswer.py ./evue_login/app.py
 
 > Evue Studio is a develop platform for evue developer to create/compile/deploy evue project!
 
-![designer](doc/images/designer.png)
+![designer](https://github.com/scriptiot/evue/blob/master/doc/images/designer.png)
 
 
 ## Community
@@ -84,9 +84,9 @@ python evuebroswer.py ./evue_login/app.py
 
 + Email : ding465398889@163.com
 + WeChat: dragondjf
-> ![dragondjf](doc/images/dragondjf.jpg)
+> ![dragondjf](https://github.com/scriptiot/evue/blob/master/doc/images/dragondjf.jpg)
 + Evue for IOT
-> ![dragondjf](doc/images/QQ.jpg)
+> ![dragondjf](https://github.com/scriptiot/evue/blob/master/doc/images/QQ.jpg)
 
 ## Salute
 

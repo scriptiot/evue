@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf8") as fh:
 
 setuptools.setup(
     name="evue",
-    version="0.1.2",
+    version="0.1.4",
     author="dragondjf",
     author_email="ding465398889@163.com",
     description="Evue is the fastest way to build apps in Python or Javascript on windows/linux/macos/ios/andriod/rtos! Write once, run everywhere! ",
