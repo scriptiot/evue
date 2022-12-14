@@ -26,7 +26,7 @@ See the [中文文档](https://github.com/scriptiot/evue/blob/master/README-zh.m
 
 + Evue cross platfom
     + Evue for flutter (windows/linux/macos/web/ios/andriod)
-    + Evue for lvgl（rtos on mcu like Asr3603/F1C100/F1C200/esp32/stm32/）
+    + Evue for lvgl（rtos on mcu like Asr3603/F1C100/F1C200/esp32/stm32/...）
 > you can run evue on any platfom as you like!
 
 + Evue for all ui engine

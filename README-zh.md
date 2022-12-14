@@ -25,12 +25,12 @@
 
 ![evuecompiler](doc/images/evuecompiler.png)
 
-+ Evue cross platfom
++ Evue 全平台运行
     + Evue for flutter (windows/linux/macos/web/ios/andriod)
-    + Evue for lvgl（rtos on mcu like Asr3603/F1C100/F1C200/esp32/stm32/）
+    + Evue for lvgl（rtos on mcu like Asr3603/F1C100/F1C200/esp32/stm32/...）
 > you can run evue on any platfom as you like!
 
-+ Evue for all ui engine
++ Evue 支持适配任何ui引擎
     + Evue for flutter
     + Evue for lvgl
     + Evue for Qt
