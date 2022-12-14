@@ -131,3 +131,12 @@ dmypy.json
 .vscode/
 .idea/
 .pdm.toml
+
+examples/*.evue.json
+examples/*.evue.q.json
+examples/__init__.py
+examples/*/*.evue.json
+examples/*/__init__.py
+examples/*/*.evue.q.json
+examples/*/*/__init__.py
+examples/*/*/*.evue.q.json

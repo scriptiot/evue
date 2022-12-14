@@ -161,7 +161,6 @@ class UserComponent(object):
         border-color: transparent;
         border-radius: 0px;
     }
-
     .switch{
         top: 10px;
         right: 10px;

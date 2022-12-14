@@ -4,5 +4,8 @@
     "port": null,
     "view": "desktop",
     "web_renderer": "canvas",
-    "dir": "./evue_login"
+    "dir": "./evue_login",
+    "entry": "evue_login",
+    "width": 1240,
+    "height": 900
 }
