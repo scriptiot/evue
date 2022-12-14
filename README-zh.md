@@ -47,6 +47,8 @@ python setup.py install # also `pip install ."
 ```python
 cd examples
 python evuebroswer.py ./evue_website/project.json
+or
+python evuebroswer.py ./evue_website/app.py
 ```
 
 + [evue_login](https://github.com/scriptiot/evue/tree/master/examples/evue_login)
@@ -54,6 +56,8 @@ python evuebroswer.py ./evue_website/project.json
 ```python
 cd examples
 python evuebroswer.py ./evue_login/project.json
+or
+python evuebroswer.py ./evue_login/app.py
 ```
 
 ## Evue Studio
