@@ -373,6 +373,11 @@ def EvueApp(config):
         pick_files_dialog = FilePicker()
         page.overlay.extend([pick_files_dialog])
 
+        if globalThis.project:
+            if 'width' in globalThis.project:
+                page.window_width = globalThis.project['width']
+            if 'height' in globalThis.project:
+                page.window_height = globalThis.project['height'] + 60
         page.window_center()
 
         for key in config:
