@@ -87,3 +87,10 @@ python evuebroswer.py ./evue_login/app.py
 > ![dragondjf](doc/images/dragondjf.jpg)
 + Evue for IOT
 > ![dragondjf](doc/images/QQ.jpg)
+
+## Salute
+
++ [evm](https://github.com/scriptiot/evm)
++ [lvgl](https://github.com/lvgl/lvgl)
++ [flet](https://github.com/flet-dev/flet)
++ [flutter](https://github.com/flutter/flutter)

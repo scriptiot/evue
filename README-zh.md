@@ -71,6 +71,7 @@ python evuebroswer.py ./evue_login/app.py
 + [Discussions](https://github.com/scriptiot/evue/discussions)
 + [Issues](https://github.com/scriptiot/evue/issues)
 
+
 ## 社区达人招募
 
 + `无论您是社区技术达人、设计师、产品经理、运营者，欢迎为evue项目贡献自己的一份力量!`
@@ -85,3 +86,11 @@ python evuebroswer.py ./evue_login/app.py
 >![dragondjf](doc/images/dragondjf.jpg)
 + Evue for IOT
 >![dragondjf](doc/images/QQ.jpg)
+
+
+## 致敬
+
++ [evm](https://github.com/scriptiot/evm)
++ [lvgl](https://github.com/lvgl/lvgl)
++ [flet](https://github.com/flet-dev/flet)
++ [flutter](https://github.com/flutter/flutter)
