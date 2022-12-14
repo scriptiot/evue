@@ -4,6 +4,7 @@
 
  查看 [English](https://github.com/scriptiot/evue/blob/master/README.md) 英文说明.
 
+ 阅读 [《EVUE 进化蜕变，下一代全平台UI开发利器》](https://www.yuque.com/dragondjf/ltn95z/krmcxd?singleDoc)了解更多介绍
 
 ## 框架
 
