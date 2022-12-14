@@ -1,14 +1,14 @@
 import setuptools
 
-with open("README.md", "r", encoding="utf8") as fh:
+with open("README-pypi.md", "r", encoding="utf8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="evue",
-    version="0.1.4",
+    version="0.1.5",
     author="dragondjf",
     author_email="ding465398889@163.com",
-    description="Evue is the fastest way to build apps in Python or Javascript on windows/linux/macos/ios/andriod/rtos! Write once, run everywhere! ",
+    description="Evue is a high-performance gui framework base an html/css which can run on windows/linux/macos/ios/andriod/rtos! Write once, run everywhere! ",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/scriptiot/evm",
