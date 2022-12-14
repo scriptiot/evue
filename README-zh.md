@@ -10,6 +10,12 @@
 
 ![brief](doc/images/brief.png)
 
++ Just python as you like 
++ multi-user for web
++ dark/light theme support
++ responsive support
++ ...
+
 ## 框架
 
 + Evue 架构

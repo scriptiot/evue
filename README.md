@@ -8,12 +8,17 @@ See the [中文文档](https://github.com/scriptiot/evue/blob/master/README-zh.m
 
 ![brief](https://github.com/scriptiot/evue/blob/master/doc/images/brief.png)
 
++ Just python as you like 
++ multi-user for web
++ dark/light theme support
++ responsive support
++ ...
 
 ## Framework
 
-+ Evue architecture
++ Evue architecture 
 
-> Evue is a high-performance gui framework base an html/css which is platform independence and ui engine independence!
+> Evue is a high-performance gui framework base an html/css which is platform independence and ui engine independence!  
 
 ![evue](https://github.com/scriptiot/evue/blob/master/doc/images/evue.png)
 
