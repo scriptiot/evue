@@ -1,6 +1,6 @@
 # evue
 
-> Evue是一个高性能的跨平台应用开发框架，可以运行在windows/linux/macos/ios/andriod/rtos多种平台，一次开发，多端运行!
+> Evue是一个高性能的跨平台应用开发框架，可以运行在windows/linux/macos/web/ios/andriod/rtos多种平台，一次开发，多端运行!
 
  查看 [English](https://github.com/scriptiot/evue/blob/master/README.md) 英文说明.
 
