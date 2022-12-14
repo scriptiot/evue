@@ -25,6 +25,18 @@
 
 ![evuecompiler](doc/images/evuecompiler.png)
 
++ Evue cross platfom
+    + Evue for flutter (windows/linux/macos/web/ios/andriod)
+    + Evue for lvgl（rtos on mcu like Asr3603/F1C100/F1C200/esp32/stm32/）
+> you can run evue on any platfom as you like!
+
++ Evue for all ui engine
+    + Evue for flutter
+    + Evue for lvgl
+    + Evue for Qt
+    + Evue for PySide2
+    + ...
+> you can compile evue to any ui code as you like!
 
 ## 安装
 使用 [pip](https://github.com/scriptiot/evue)安装evue.
