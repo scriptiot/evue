@@ -6,6 +6,10 @@
 
  阅读 [《EVUE 进化蜕变，下一代全平台UI开发利器》](https://www.yuque.com/dragondjf/ltn95z/krmcxd?singleDoc)了解更多介绍
 
+## 特性
+
+![brief](doc/images/brief.png)
+
 ## 框架
 
 + Evue 架构
@@ -20,11 +24,6 @@
 > evue编译器的功能主要是将evue文件编译为python/javascript代码；
 
 ![evuecompiler](doc/images/evuecompiler.png)
-
-
-## 特性
-
-![brief](doc/images/brief.png)
 
 
 ## 安装
