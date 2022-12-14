@@ -6,7 +6,7 @@ See the [中文文档](https://github.com/scriptiot/evue/blob/master/README-zh.m
 
 ## Features
 
-![brief](https://github.com/scriptiot/evue/blob/master/https://github.com/scriptiot/evue/blob/master/doc/images/brief.png)
+![brief](https://github.com/scriptiot/evue/blob/master/doc/images/brief.png)
 
 
 ## Framework
