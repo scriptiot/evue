@@ -51,7 +51,7 @@ or
 python evuebroswer.py ./evue_website/app.py
 ```
 
-![xxx](doc/images/evue_website.gif)
+![evue_website](doc/images/evue_website.gif)
 
 + [evue_login](https://github.com/scriptiot/evue/tree/master/examples/evue_login)
 
@@ -61,6 +61,7 @@ python evuebroswer.py ./evue_login/project.json
 or
 python evuebroswer.py ./evue_login/app.py
 ```
+![evue_login](doc/images/evue_login.gif)
 
 ## Evue Studio
 
