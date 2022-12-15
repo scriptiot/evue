@@ -87,6 +87,11 @@ python evuebroswer.py ./evue_login/app.py
 
 ![designer](doc/images/designer.png)
 
+## Evue for iot
+> Evue for iot 是一个基于evue的商业产品`quicknode`, 轻量级evue解决方案，可以运行在各种mcu上。
+
+![quicknode](doc/images/quicknode.gif)
+
 ## 社区讨论
 
 + [Discussions](https://github.com/scriptiot/evue/discussions)
