@@ -104,7 +104,7 @@ python evuebroswer.py ./evue_login/app.py
 + 解压quicknode-qbc-20221215142421-693fbf88.zip
 + 双击 `quicknode.bat` or `quicknode_chart.bat` 
 
-[帮助手册](https://www.yuque.com/bytecode/eu1sci/edzq05)
+[帮助手册](https://www.yuque.com/bytecode/eu1sci/ymto6i)
 
 ## 社区讨论
 
