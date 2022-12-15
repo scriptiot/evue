@@ -92,6 +92,8 @@ python evuebroswer.py ./evue_login/app.py
 
 ![quicknode](doc/images/quicknode.gif)
 
+更多介绍请阅读 [quicknode产品介绍](doc/EVUE%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8DPDF%E7%89%88.pdf)
+
 ## 社区讨论
 
 + [Discussions](https://github.com/scriptiot/evue/discussions)
