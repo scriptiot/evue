@@ -88,10 +88,10 @@ python evuebrowser.py ./evue_login/app.py
 ![designer](https://github.com/scriptiot/evue/blob/master/doc/images/designer.png)
 
 
-[download latest evue studio](https://github.com/scriptiot/evue/releases/download/0.1.6/evuestudio-20221215150224-9cd20e3.zip)
+[download latest evue studio](https://github.com/scriptiot/evue/releases/download/0.1.6/evuestudio-20221215162924-2c17005.7z)
 
-+ uncompress evuestudio-20221215150224-9cd20e3.zip
-+ double click `evuedesigner.exe` 
++ uncompress evuestudio-*.7z
++ double click `evuestudio.exe` 
 
 ## Evue for iot
 > Evue for iot is a commercial product named `quicknode`, a tiny runtime of js engnine which can run on lots of mcu
