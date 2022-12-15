@@ -105,6 +105,8 @@ more info [what is quicknode](doc/EVUE%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8DPDF%E7
 + uncompress quicknode-qbc-20221215142421-693fbf88.zip
 + double click `quicknode.bat` or `quicknode_chart.bat` 
 
+[document](https://www.yuque.com/bytecode/eu1sci/edzq05)
+
 ## Community
 
 + [Discussions](https://github.com/scriptiot/evue/discussions)
