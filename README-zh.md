@@ -106,7 +106,7 @@ python evuebroswer.py ./evue_login/app.py
 
 [帮助手册](https://www.yuque.com/bytecode/eu1sci/ymto6i)
 
-## 编译evue文件成python代码
+## 编译evue文件->python代码
 
 ![evue2py](doc/images/evue2py.gif)
 
