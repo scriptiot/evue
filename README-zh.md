@@ -87,12 +87,22 @@ python evuebroswer.py ./evue_login/app.py
 
 ![designer](doc/images/designer.png)
 
+[下载最新的evue studio](https://gitee.com/scriptiot/evue/releases/download/0.1.6/evuestudio-20221215150224-9cd20e3.7z)
+
++ 解压evuestudio-20221215150224-9cd20e3.7z
++ 双击 `evuedesigner.exe`
+
 ## Evue for iot
 > Evue for iot 是一个基于evue的商业产品`quicknode`, 轻量级evue解决方案，可以运行在各种mcu上。
 
 ![quicknode](doc/images/quicknode.gif)
 
 更多介绍请阅读 [quicknode产品介绍](doc/EVUE%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8DPDF%E7%89%88.pdf)
+
+[下载最新的quicknode](https://gitee.com/scriptiot/evue/releases/download/0.1.6/quicknode-qbc-20221215142421-693fbf88.zip)
+
++ 解压quicknode-qbc-20221215142421-693fbf88.zip
++ 双击 `quicknode.bat` or `quicknode_chart.bat` 
 
 ## 社区讨论
 

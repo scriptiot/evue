@@ -88,12 +88,22 @@ python evuebrowser.py ./evue_login/app.py
 ![designer](https://github.com/scriptiot/evue/blob/master/doc/images/designer.png)
 
 
+[download latest evue studio](https://github.com/scriptiot/evue/releases/download/0.1.6/evuestudio-20221215150224-9cd20e3.zip)
+
++ uncompress evuestudio-20221215150224-9cd20e3.zip
++ double click `evuedesigner.exe` 
+
 ## Evue for iot
 > Evue for iot is a commercial product named `quicknode`, a tiny runtime of js engnine which can run on lots of mcu
 
 ![quicknode](doc/images/quicknode.gif)
 
 more info [what is quicknode](doc/EVUE%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8DPDF%E7%89%88.pdf)
+
+[download quicknode](https://github.com/scriptiot/evue/releases/download/0.1.6/quicknode-qbc-20221215142421-693fbf88.zip)
+
++ uncompress quicknode-qbc-20221215142421-693fbf88.zip
++ double click `quicknode.bat` or `quicknode_chart.bat` 
 
 ## Community
 

@@ -153,6 +153,9 @@ def startApp(path: str, closeCallback=None, threaded=False):
                 if app:
                     loaded = True
 
+    if globalThis.project:
+        loaded = True
+
     globalThis.rootcwd = os.getcwd()
     if 'assets_dir' in kwargs:
         assets_dir = os.path.normpath(os.path.abspath(kwargs['assets_dir']))
