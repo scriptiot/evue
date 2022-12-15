@@ -106,6 +106,15 @@ python evuebroswer.py ./evue_login/app.py
 
 [帮助手册](https://www.yuque.com/bytecode/eu1sci/ymto6i)
 
+## 编译evue文件成python代码
+
+[如何编译evue文件为python代码](https://github.com/scriptiot/evue/wiki/How-to-compile--evue-to--python-code%3F)
+
++ 登录evue studio
++ 切换到`编译`页面
++ 添加工程目录到监控列表
++ 改变evue文件会自动编译为python代码
+
 ## 社区讨论
 
 + [Discussions](https://github.com/scriptiot/evue/discussions)

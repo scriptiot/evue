@@ -107,6 +107,15 @@ more info [what is quicknode](doc/EVUE%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8DPDF%E7
 
 [document](https://www.yuque.com/bytecode/eu1sci/ymto6i)
 
+## how to compile evue to python code
+
+[how to compile evue to python code](https://github.com/scriptiot/evue/wiki/How-to-compile--evue-to--python-code%3F)
+
++ login in evue studio
++ switch to compile page
++ add project dir to watch
++ evue will be compiled to python code automatically when you change evue file
+
 ## Community
 
 + [Discussions](https://github.com/scriptiot/evue/discussions)
