@@ -109,6 +109,8 @@ more info [what is quicknode](doc/EVUE%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8DPDF%E7
 
 ## how to compile evue to python code
 
+![evue2py](doc/images/evue2py.gif)
+
 [how to compile evue to python code](https://github.com/scriptiot/evue/wiki/How-to-compile--evue-to--python-code%3F)
 
 + login in evue studio

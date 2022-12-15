@@ -108,6 +108,8 @@ python evuebroswer.py ./evue_login/app.py
 
 ## 编译evue文件成python代码
 
+![evue2py](doc/images/evue2py.gif)
+
 [如何编译evue文件为python代码](https://github.com/scriptiot/evue/wiki/How-to-compile--evue-to--python-code%3F)
 
 + 登录evue studio
