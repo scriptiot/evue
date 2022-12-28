@@ -6,7 +6,7 @@ See the [中文文档](https://github.com/scriptiot/evue/blob/master/README-zh.m
 
 ## Features
 
-![brief](https://github.com/scriptiot/evue/blob/master/doc/images/brief.png)
+![brief](https://github.com/scriptiot/evue/blob/master/doc/images/brief.png?raw=true)
 
 + Just python as you like 
 + multi-user for web
@@ -20,14 +20,14 @@ See the [中文文档](https://github.com/scriptiot/evue/blob/master/README-zh.m
 
 > Evue is a high-performance gui framework base an html/css which is platform independence and ui engine independence!  
 
-![evue](https://github.com/scriptiot/evue/blob/master/doc/images/evue.png)
+![evue](https://github.com/scriptiot/evue/blob/master/doc/images/evue.png?raw=true)
 
 
 + Evuecompiler architecture
 
 > Evuecompiler is a compiler which compile evue file to python/javascript code!
 
-![evuecompiler](https://github.com/scriptiot/evue/blob/master/doc/images/evuecompiler.png)
+![evuecompiler](https://github.com/scriptiot/evue/blob/master/doc/images/evuecompiler.png?raw=true)
 
 + Evue cross platfom
     + Evue for flutter (windows/linux/macos/web/ios/andriod)
@@ -67,7 +67,7 @@ or
 python evuebrowser.py ./evue_website/app.py
 ```
 
-![evue_website](doc/images/evue_website.gif)
+![evue_website](https://github.com/scriptiot/evue/tree/master/doc/images/evue_website.gif?raw=true)
 
 + [evue_login](https://github.com/scriptiot/evue/tree/master/examples/evue_login)
 
@@ -78,14 +78,14 @@ or
 python evuebrowser.py ./evue_login/app.py
 ```
 
-![evue_login](doc/images/evue_login.gif)
+![evue_login](https://github.com/scriptiot/evue/tree/master/doc/images/evue_login.gif?raw=true)
 
 
 ## Evue Studio
 
 > Evue Studio is a develop platform for evue developer to create/compile/deploy evue project!
 
-![designer](https://github.com/scriptiot/evue/blob/master/doc/images/designer.png)
+![designer](https://github.com/scriptiot/evue/blob/master/doc/images/designer.png?raw=true)
 
 
 [download latest evue studio](https://github.com/scriptiot/evue/releases/download/0.1.6/evuestudio-20221215162924-2c17005.7z)
@@ -96,7 +96,7 @@ python evuebrowser.py ./evue_login/app.py
 ## Evue for iot
 > Evue for iot is a commercial product named `quicknode`, a tiny runtime of js engnine which can run on lots of mcu
 
-![quicknode](doc/images/quicknode.gif)
+![quicknode](https://github.com/scriptiot/evue/blob/master/doc/images/quicknode.gif?raw=true)
 
 more info [what is quicknode](doc/EVUE%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8DPDF%E7%89%88.pdf)
 
@@ -109,7 +109,7 @@ more info [what is quicknode](doc/EVUE%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8DPDF%E7
 
 ## how to compile evue to python code
 
-![evue2py](doc/images/evue2py.gif)
+![evue2py](https://github.com/scriptiot/evue/blob/master/doc/images/evue2py.gif?raw=true)
 
 [how to compile evue to python code](https://github.com/scriptiot/evue/wiki/How-to-compile--evue-to--python-code%3F)
 
@@ -137,9 +137,9 @@ more info [what is quicknode](doc/EVUE%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8DPDF%E7
 
 + Email : ding465398889@163.com
 + WeChat: dragondjf
-> ![dragondjf](https://github.com/scriptiot/evue/blob/master/doc/images/dragondjf.jpg)
+> ![dragondjf](https://github.com/scriptiot/evue/blob/master/doc/images/dragondjf.jpg?raw=true)
 + Evue for IOT
-> ![dragondjf](https://github.com/scriptiot/evue/blob/master/doc/images/QQ.jpg)
+> ![dragondjf](https://github.com/scriptiot/evue/blob/master/doc/images/QQ.jpg?raw=true)
 
 ## Salute
 
