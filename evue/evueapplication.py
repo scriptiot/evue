@@ -4,7 +4,7 @@ import flet
 from flet import Page
 from flet.flet import *
 from flet.flet import _connect_internal
-from flet.flet import _open_flet_view
+from flet.flet import open_flet_view
 from .globalthis import globalThis, loadApp, loadProject
 from .fileserver import *
 import threading
@@ -79,7 +79,7 @@ class EvueApplication(object):
             and not is_linux_server()
             and url_prefix is None
         ):
-            fvp = _open_flet_view(conn.page_url, view == FLET_APP_HIDDEN)
+            fvp = open_flet_view(conn.page_url, view == FLET_APP_HIDDEN)
             self.pflet = fvp
             self.connetion = conn
             try:
