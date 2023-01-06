@@ -88,7 +88,7 @@ python evuebrowser.py ./evue_login/app.py
 ![designer](https://github.com/scriptiot/evue/blob/master/doc/images/designer.png?raw=true)
 
 
-[download latest evue studio](https://github.com/scriptiot/evue/releases/download/0.1.6/evuestudio-20221215162924-2c17005.7z)
+[download latest evue studio](https://github.com/scriptiot/evue/releases/download/0.1.6.1/evuestudio-20230106211347-65b5a31.7z)
 
 + uncompress evuestudio-*.7z
 + double click `evuestudio.exe` 
