@@ -50,7 +50,10 @@ class SessionObject(object):
         return self.router.add(uri, id, element)
 
     def update(self):
-        self.page.update()
+        try:
+            self.page.update()
+        except:
+            pass
 
     def clipboard(self):
         globalThis.clipboard(self.sessionID)

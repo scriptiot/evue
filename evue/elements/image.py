@@ -96,6 +96,7 @@ class ImageElement(FletBaseElement):
                 except:
                     pass
             self._image_.src = f"%s" % value
+            self._image_.src_base64 = None
 
     def set_src_base64(self, value):
         self._image_.src_base64 = value
