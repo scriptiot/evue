@@ -5,7 +5,7 @@ with open("README-pypi.md", "r", encoding="utf8") as fh:
 
 setuptools.setup(
     name="evue",
-    version="0.1.6",
+    version="0.1.6.1",
     author="dragondjf",
     author_email="ding465398889@163.com",
     description="Evue is a high-performance gui framework base an html/css which can run on windows/linux/macos/ios/andriod/rtos! Write once, run everywhere! ",
