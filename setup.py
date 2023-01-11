@@ -14,7 +14,7 @@ setuptools.setup(
     url="https://github.com/scriptiot/evm",
     packages=setuptools.find_packages(),
     install_requires=[
-        "flet>=0.2.4",
+        "flet==0.3.2",
         "pyee>=9.0.4",
         "loguru>=0.6.0",
         "pyperclip>=1.8.2",
