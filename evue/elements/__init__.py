@@ -31,6 +31,7 @@ from .listitem import ListItemElement
 from .tabview import TabViewElement
 from .tab import TabElement
 from .markdown import MarkdownElement
+from .arc import ArcElement
 
 
 ElementClass = {
@@ -63,7 +64,8 @@ ElementClass = {
     "listitem": ListItemElement,
     "tabview": TabViewElement,
     "tab": TabElement,
-    "markdown": MarkdownElement
+    "markdown": MarkdownElement,
+    "arc": ArcElement
 }
 
 UserElements = {}
