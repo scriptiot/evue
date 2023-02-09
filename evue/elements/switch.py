@@ -56,17 +56,17 @@ class SwitchElement(FletBaseElement):
         flag = FletBaseElement.bool(value)
         if flag:
             self._obj_.alignment = alignment.center_right
-            self._obj_.bgcolor = self['switch-indic-color']
+            self.background_color = self['switch-indic-color']
         else:
             self._obj_.alignment = alignment.center_left
-            self._obj_.bgcolor = self.background_color
+            self.background_color = self.background_color
 
     def set_disabled(self, value):
         self._obj_.disabled = FletBaseElement.bool(value)
 
     def set_switch_indic_color(self, value):
         if self['value']:
-            self._obj_.bgcolor = value
+            self.background_color = value
         self['switch-indic-color']  = value
 
     def set_switch_knob_color(self, value):

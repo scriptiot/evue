@@ -89,8 +89,8 @@ class ProgressElement(FletBaseElement):
             "border-width": 0,
             "border-radius": 100,
             "border-color": "transparent",
-            "background-color": "white",
-            "progress-indic-color": "green",
+            "background-color": "#ffffff",
+            "progress-indic-color": "#4caf50",
         }
 
     @classmethod
