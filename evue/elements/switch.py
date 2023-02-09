@@ -10,6 +10,7 @@ from .fletbaseelement import FletBaseElement
 from .text import TextElement
 from .widgets import BaseContainer
 from loguru import logger
+from ..debounce import debounce
 
 
 class SwitchElement(FletBaseElement):
@@ -21,6 +22,7 @@ class SwitchElement(FletBaseElement):
         self['switch-knob-color'] = '#ffffff'
         self.create(parent, draggable)
         self.setParent(parent)
+        self.events = self.default_events(self.id)
 
     def create(self, parent, draggable=False):
         self._switch_ = BaseContainer()
@@ -71,10 +73,14 @@ class SwitchElement(FletBaseElement):
         self._switch_.bgcolor = value
         self['switch_knob_color']  = value
 
+    @debounce(0.01)
+    def handle_callback(self, func):
+        self.value = not self['value']
+        func(self)
+
     def set_onValueChanged(self, func):
         def on_click(e):
-            self.value = not self['value']
-            func(self)
+            self.handle_callback(func)
         self._obj_.on_click = on_click
 
     @classmethod
