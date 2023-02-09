@@ -63,7 +63,7 @@ class ProgressElement(FletBaseElement):
     def attributes(self):
         attributes = super().attributes
         attributes.update({
-            "percent": self['percent']
+            "percent": int(self['percent'])
         })
         return attributes
 

@@ -12,6 +12,7 @@ import subprocess
 from threading import Thread
 import functools
 from collections import OrderedDict
+import traceback
 
 
 _modules_ = {}
@@ -197,34 +198,39 @@ class globalThis(object):
                 ret = True
                 if hasattr(pageview, "onAccept") and pageview.onAccept:
                     ret = pageview.onAccept(dialog)
+                    if ret is None:
+                        ret = True
                 if on_accept:
                     ret = on_accept(dialog.id, pageview, True)
                 logger.warning(ret)
                 if ret:
                     page.event.emit(dialog.id, pageview, True)
+
                 return ret
 
             def onCancel(e):
                 ret = True
                 if hasattr(pageview, "onCancel") and pageview.onCancel:
                     ret = pageview.onCancel(dialog)
-                
-                logger.warning(on_cancle)
+                    if ret is None:
+                        ret = True
+                logger.warning(ret)
                 if on_cancle:
                     ret = on_cancle(dialog.id, pageview, False)
                 if ret:
                     page.event.emit(dialog.id, pageview, False)
                     # page.dialog = None
-                
-                logger.warning(ret)
                 return ret
 
             def onDismiss(e):
                 ret = True
                 if hasattr(pageview, "onDismiss") and pageview.onDismiss:
                     ret = pageview.onDismiss(dialog)
+                    if ret is None:
+                        ret = True
                 if on_dismiss:
                     ret = on_dismiss(dialog.id, pageview, False)
+
                 return ret
 
             dialog.onAccept = onAccept
@@ -344,15 +350,26 @@ class globalThis(object):
         page.update()
 
     @classmethod
-    def runCmd(cls, command, callback=None):
+    def runCmd(cls, command, callback=None, errorcallback=None):
         logger.warning(command)
         ret = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, encoding="utf-8")
         @threaded
         def log():
-            logger.warning(ret.communicate()[0])
-            if callback:
-                callback()
-        log()
+            try:
+                msg  = ret.communicate()[0]
+                logger.info(msg)
+                if callback:
+                    callback(msg)
+            except:
+                msg = traceback.format_exc()
+                logger.error(msg)
+                if errorcallback:
+                    errorcallback(msg)
+                if callback:
+                    callback(msg)
+
+        if callback:
+            log()
         return ret
 
 

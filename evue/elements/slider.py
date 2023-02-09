@@ -88,7 +88,7 @@ class SliderElement(FletBaseElement):
         attributes.update({
             "min": self._slider_.min,
             "max": self._slider_.max,
-            "value": self._slider_.value,
+            "value": int(self._slider_.value),
             "divisions": self._slider_.divisions,
             "label": self._slider_.label
         })

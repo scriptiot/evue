@@ -9,56 +9,73 @@ from flet import (
 from .fletbaseelement import FletBaseElement
 from .text import TextElement
 from .widgets import BaseContainer
+from loguru import logger
 
 
-class SwitchElement(TextElement):
+class SwitchElement(FletBaseElement):
 
     def __init__(self, node, parent, draggable=False, sessionID=None):
         super().__init__(node, parent, draggable, sessionID=sessionID)
+        self['value'] = False
+        self['switch-indic-color'] = "#01a2b1"
+        self['switch-knob-color'] = '#ffffff'
+        self.create(parent, draggable)
+        self.setParent(parent)
 
     def create(self, parent, draggable=False):
-        self._switch_ = Switch()
-        self._text_ = Text(expand=True)
-        self._row_ = Row([self._switch_, self._text_], expand=True)
+        self._switch_ = BaseContainer()
+        self._switch_.border_radius = 1000
         if draggable:
             self._obj_ = BaseContainer(Draggable(content=self._row_),
                 alignment=alignment.center
             )
             self._obj_.content.element = self
         else:
-            self._obj_ = BaseContainer(self._row_, alignment=alignment.center)
+            self._obj_ = BaseContainer(self._switch_, alignment=alignment.center_left)
+
+        def onValueChanged(value):
+            pass
+        
+        self.onValueChanged = onValueChanged
 
     def set_width(self, value):
         self._obj_.width = value
 
     def set_height(self, value):
         self._obj_.height = value
+        self._obj_.border_radius = value
+        self._switch_.width = value
+        self._switch_.height = value
 
-    def set_text(self, value):
-        width, height = self.measureText(value, self._text_.size)
-        if width is not None and width > self.width:
-            self.width = width + 72
-        if height is not None and height > self.height:
-            self.height = height
-        self._text_.value = value
+    def set_border_radius(self, value):
+        self._obj_.border_radius = value
 
     def set_value(self, value):
-        self._switch_.value = FletBaseElement.bool(value)
+        flag = FletBaseElement.bool(value)
+        if flag:
+            self._obj_.alignment = alignment.center_right
+            self._obj_.bgcolor = self['switch-indic-color']
+        else:
+            self._obj_.bgcolor = self.background_color
+            self._obj_.alignment = alignment.center_left
+        self['value'] = flag
 
     def set_disabled(self, value):
-        self._switch_.disabled = FletBaseElement.bool(value)
+        self._obj_.disabled = FletBaseElement.bool(value)
 
     def set_switch_indic_color(self, value):
-        self._switch_.track_color = value
+        self._obj_.bgcolor = value
+        self['switch-indic-color']  = value
 
     def set_switch_knob_color(self, value):
-        self._switch_.thumb_color = value
+        self._switch_.bgcolor = value
+        self['switch_knob_color']  = value
 
     def set_onValueChanged(self, func):
-        def on_change(e):
-            self.value = e.control.value
+        def on_click(e):
+            self.value = not self['value']
             func(self)
-        self._switch_.on_change = on_change
+        self._obj_.on_click = on_click
 
     @classmethod
     def default_events(cls, id):
@@ -73,8 +90,7 @@ class SwitchElement(TextElement):
     def attributes(self):
         attributes = super().attributes
         attributes.update({
-            "text": self._text_.value,
-            "value": self._switch_.value
+            "value": self.value
         })
         return attributes
 
@@ -82,8 +98,8 @@ class SwitchElement(TextElement):
     def style(self):
         ret = super().style
         ret.update({
-            "switch-indic-color": self._switch_.track_color,
-            "switch-knob-color": self._switch_.thumb_color
+            "switch-indic-color": self['switch-indic-color'],
+            "switch-knob-color": self['switch-knob-color']
         })
         return ret
 
@@ -96,23 +112,16 @@ class SwitchElement(TextElement):
             self.switch_knob_color = style['switch-knob-color']
         # attr
         attributes = node['attributes']
-        if "text" in attributes:
-            self.text = attributes["text"]
         if "value" in attributes:
             self.value = attributes["value"]
 
     def set_tiny_attributes(self, attributes):
         style = attributes['style']
-        self.font_size = style['font-size']
-        self.color = style['color']
-        self.text_align = style['text-align']
-        if 'checkbox-checked-color' in style:
+        if 'switch-indic-color' in style:
             self.switch_indic_color = style['switch-indic-color']
         if 'switch-knob-color' in style:
             self.switch_knob_color = style['switch-knob-color']
         # attr
-        if "text" in attributes:
-            self.text = attributes["text"]
         if "value" in attributes:
             self.value = attributes["value"]
 
@@ -122,19 +131,16 @@ class SwitchElement(TextElement):
             "width": 64,
             "height": 32,
             "border-width": 0,
+            "border-radius": 32,
             "border-color": "transparent",
-            "background-color": "#282828",
-            "color": "white",
-            "font-size": 20,
-            "text-align": "left",
-            "switch-indic-color": "green",
-            "switch-knob-color": "red"
+            "background-color": "#808080",
+            "switch-indic-color": "#01a2b1",
+            "switch-knob-color": "#ffffff"
         }
 
     @classmethod
     def defaut_attributes(cls):
         return {
-            "text": "switch",
             "value": True,
             "style": cls.defaut_style()
         }
