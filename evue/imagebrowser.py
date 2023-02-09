@@ -37,7 +37,12 @@ from flet import (
 from flet.padding import Padding
 from flet.control_event import ControlEvent
 import shutil
-from os import startfile
+import platform
+system_type = platform.system()
+if system_type == "Darwin" or system_type == "Linux":
+    import subprocess
+else:
+    from os import startfile
 
 
 class debounce:  # noqa
@@ -241,7 +246,11 @@ class ImageExplore(Container):
         else:
             d = "%s%s" % (self.assets_dir, self.currentDirName)
             d = os.path.abspath(d)
-        startfile(d)
+        system_type_local = platform.system()
+        if system_type_local == "Darwin" or system_type_local == "Linux":
+            subprocess.call(["open", d])
+        else:
+            startfile(d)
 
     def updateSideBar(self):
         self.sidebar.controls.clear()

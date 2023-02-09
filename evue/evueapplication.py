@@ -13,6 +13,7 @@ from threading import Thread
 from loguru import logger
 from .router import Router
 from pyee import EventEmitter
+import platform
 
 os.environ["FLET_WS_MAX_MESSAGE_SIZE"] = "8000000"
 def main(page: Page):
@@ -171,12 +172,19 @@ def startApp(path: str, closeCallback=None, threaded=False):
         kwargs['host'] = host
     globalThis.server_ip = host if host not in [None, "", "*"] else "127.0.0.1"
 
+    system_type_local = platform.system()
     if 'port' in kwargs and kwargs['port']:
         port = kwargs['port']
-        globalThis.port = port
+        if system_type_local == "Linux":
+            globalThis.port = port - 1
+        else:
+            globalThis.port = port 
     else:
         port = get_free_tcp_port()
-        globalThis.port = port
+        if system_type_local == "Linux":
+            globalThis.port = port + 1
+        else:
+            globalThis.port = port
         kwargs['port'] = port
 
 
