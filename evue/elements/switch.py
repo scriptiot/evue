@@ -43,7 +43,7 @@ class SwitchElement(FletBaseElement):
 
     def set_height(self, value):
         self._obj_.height = value
-        self._obj_.border_radius = value
+        self.border_radius = value
         self._switch_.width = value
         self._switch_.height = value
 
@@ -56,15 +56,15 @@ class SwitchElement(FletBaseElement):
             self._obj_.alignment = alignment.center_right
             self._obj_.bgcolor = self['switch-indic-color']
         else:
-            self._obj_.bgcolor = self.background_color
             self._obj_.alignment = alignment.center_left
-        self['value'] = flag
+            self._obj_.bgcolor = self.background_color
 
     def set_disabled(self, value):
         self._obj_.disabled = FletBaseElement.bool(value)
 
     def set_switch_indic_color(self, value):
-        self._obj_.bgcolor = value
+        if self['value']:
+            self._obj_.bgcolor = value
         self['switch-indic-color']  = value
 
     def set_switch_knob_color(self, value):
@@ -141,7 +141,7 @@ class SwitchElement(FletBaseElement):
     @classmethod
     def defaut_attributes(cls):
         return {
-            "value": True,
+            "value": False,
             "style": cls.defaut_style()
         }
 
