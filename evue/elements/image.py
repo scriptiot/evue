@@ -11,6 +11,7 @@ from PIL import Image as PILImage
 from .widgets import BaseContainer
 from loguru import logger
 from ..globalthis import globalThis
+import traceback
 
 
 def getSize(src):
@@ -29,7 +30,7 @@ def getSize(src):
         width = getValue("width")
         height = getValue("height")
     else:
-        path = os.path.abspath("%s/%s" % (globalThis.assets_dir, src))
+        path = src
         img = PILImage.open(path)
         size = img.size
         width = size[0]
@@ -94,7 +95,7 @@ class ImageElement(FletBaseElement):
                     self.width = size[0]
                     self.height = size[1]
                 except:
-                    pass
+                    logger.error(traceback.format_exc())
             self._image_.src = f"%s" % value
             self._image_.src_base64 = None
 

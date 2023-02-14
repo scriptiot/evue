@@ -821,7 +821,11 @@ class FletBaseElement(BaseElement):
             "border-width": self.border_width,
             "border-color": self.border_color,
             "border-radius": self.border_radius,
-            "background-color": self.background_color
+            "background-color": self.background_color,
+            "padding-left": self.padding_left,
+            "padding-top": self.padding_top,
+            "padding-right": self.padding_right,
+            "padding-bottom": self.padding_bottom
         }
         if int(self.width) > 0:
             ret['width'] = int(self.width)
@@ -839,7 +843,6 @@ class FletBaseElement(BaseElement):
     def json(self):
         for b in self.bindings:
             b['value'] = getattr(self, b['attrName'])
-
         return {
             "type": self.node['type'],
             "attributes": self.attributes,
@@ -862,6 +865,21 @@ class FletBaseElement(BaseElement):
             self.height = style['height']
         if 'background-color' in style:
             self.background_color = style['background-color']
+
+        if 'padding-left' in style:
+            self.padding_left = style['padding-left']
+
+        if 'padding-top' in style:
+            self.padding_top = style['padding-top']
+
+        if 'padding-right' in style:
+            self.padding_right = style['padding-right']
+
+        if 'padding-bottom' in style:
+            self.padding_bottom = ['padding-bottom']
+
+        if 'padding' in style:
+            self.padding = style['padding']
 
         if len(self.borders.keys()) > 0:
             self.restoreBorders()

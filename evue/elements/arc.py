@@ -44,10 +44,18 @@ class ArcElement(FletBaseElement):
         self._arc_.width = value
         self._bg_.width = value
 
+        self._obj_.height = value
+        self._arc_.height = value
+        self._bg_.height = value
+
     def set_height(self, value):
         self._obj_.height = value
         self._arc_.height = value
         self._bg_.height = value
+
+        self._obj_.width = value
+        self._arc_.width = value
+        self._bg_.width = value
 
     def set_value(self, value):
         self._arc_.value = float(int(value) / 100)

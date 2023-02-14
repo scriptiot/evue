@@ -54,23 +54,29 @@ class BaseElement(Dict[str, Any], SessionObject):
         self['src'] = ""
         # text
         self['value'] = ""
-        self['text-align'] = "center"
-        self['font-family'] = None
+        self['text_align'] = "center"
+        self['font_family'] = None
+        self['font_size'] = 20
         self['size'] = None
         self['weight'] = None
         self['italic'] = None
         self['style'] = None
-        self['max-lines'] = None
+        self['max_lines'] = None
         self['overflow'] = None
         self['selectable'] = None
-        self['no-wrap'] = None
+        self['no_wrap'] = None
         self['color'] =  None
         self['background_color'] =  None
-        self['semantics-label'] = None
+        self['semantics_label'] = None
         self['opacity'] = 0
         self['rotate'] = 0
         self['scale'] = 1
         self['offset'] = 0
+        self['padding_left'] = 0
+        self['padding_top'] = 0
+        self['padding_right'] = 0
+        self['padding_bottom'] = 0
+        self['padding'] = 0
 
     def __getattr__(self, name: str) -> Any:
         try:

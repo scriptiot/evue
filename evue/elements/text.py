@@ -89,6 +89,23 @@ class TextElement(FletBaseElement):
         else:
             self._text_.text_align = value
 
+    def set_height(self, value):
+        self.obj.height = value
+        logger.warning(self.measureText(self._text_.value, self.font_size))
+        self.padding_top = self.height / 2 -  self.font_size / 2
+
+    def set_padding_left(self, value):
+        self.obj.set_padding_left(value)
+
+    def set_padding_top(self, value):
+        self.obj.set_padding_top(0)
+
+    def set_padding_right(self, value):
+        self.obj.set_padding_right(value)
+
+    def set_padding_bottom(self, value):
+        self.obj.set_padding_bottom(value)
+
     @property
     def attributes(self):
         attributes = super().attributes
@@ -137,7 +154,7 @@ class TextElement(FletBaseElement):
             "background-color": "transparent",
             "color": "white",
             "font-size": 20,
-            "text-align": "center"
+            "text-align": "center",
         }
 
     @classmethod
