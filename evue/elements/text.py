@@ -91,7 +91,6 @@ class TextElement(FletBaseElement):
 
     def set_height(self, value):
         self.obj.height = value
-        logger.warning(self.measureText(self._text_.value, self.font_size))
         self.padding_top = self.height / 2 -  self.font_size / 2
 
     def set_padding_left(self, value):
