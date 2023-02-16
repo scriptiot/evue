@@ -18,6 +18,7 @@ class SwitchElement(FletBaseElement):
     def __init__(self, node, parent, draggable=False, sessionID=None):
         super().__init__(node, parent, draggable, sessionID=sessionID)
         self['value'] = False
+        self['switch-bg-color'] = "#808080"
         self['switch-indic-color'] = "#01a2b1"
         self['switch-knob-color'] = '#ffffff'
         self.create(parent, draggable)
@@ -56,10 +57,12 @@ class SwitchElement(FletBaseElement):
         flag = FletBaseElement.bool(value)
         if flag:
             self._obj_.alignment = alignment.center_right
+            if self.background_color != self['switch-indic-color']:
+                self['switch-bg-color'] = self.background_color
             self.background_color = self['switch-indic-color']
         else:
             self._obj_.alignment = alignment.center_left
-            self.background_color = self.background_color
+            self.background_color = self['switch-bg-color']
 
     def set_disabled(self, value):
         self._obj_.disabled = FletBaseElement.bool(value)
@@ -104,6 +107,7 @@ class SwitchElement(FletBaseElement):
     def style(self):
         ret = super().style
         ret.update({
+            'background-color': self['switch-bg-color'],
             "switch-indic-color": self['switch-indic-color'],
             "switch-knob-color": self['switch-knob-color']
         })
