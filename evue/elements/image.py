@@ -12,6 +12,7 @@ from .widgets import BaseContainer
 from loguru import logger
 from ..globalthis import globalThis
 import traceback
+import math
 
 
 def getSize(src):
@@ -41,6 +42,9 @@ class ImageElement(FletBaseElement):
 
     def __init__(self, node, parent, draggable=False, sessionID=None):
         super().__init__(node, parent, draggable, sessionID=sessionID)
+        self['zoom'] = 1
+        self['scale'] = 1
+        self['angle'] = 0
         self.create(parent, draggable)
         self.setParent(parent)
 
@@ -111,11 +115,27 @@ class ImageElement(FletBaseElement):
     def set_image_opacity(self, value):
         self._image_.opacity = value
 
+    def set_zoom(self, value):
+        logger.warning(value)
+        self['scale'] = value
+        self.set_scale(value)
+
+    def set_scale(self, value):
+        self['zoom'] = value
+        value = float(value)
+        self.obj.scale = value
+
+    def set_angle(self, value):
+        value = int(value)
+        self.obj.rotate = 2 * math.pi * value / 360
+
     @property
     def attributes(self):
         attributes = super().attributes
         attributes.update({
-            "src": self['src']
+            "src": self['src'],
+            "zoom": self['zoom'],
+            "angle": self['angle']
         })
         return attributes
 
@@ -125,6 +145,12 @@ class ImageElement(FletBaseElement):
         attributes = node['attributes']
         if 'src' in attributes:
             self.src = attributes["src"]
+        if 'zoom' in attributes:
+            self.zoom = attributes["zoom"]
+        if 'scale' in attributes:
+            self.scale = attributes["scale"]
+        if 'angle' in attributes:
+            self.angle = attributes["angle"]
 
     @classmethod
     def defaut_style(cls):

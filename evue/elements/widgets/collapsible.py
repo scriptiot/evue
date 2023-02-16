@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from asyncio.log import logger
+from loguru import logger
 from math import pi
 from typing import Optional
 
@@ -46,14 +46,14 @@ class Collapsible(Column):
     
     def set_open(self, value):
         if value:
-            self.content.height = None
+            self.content.height = 0
             self.content.opacity = 0 
-            self.shevron.rotate = pi
+            self.shevron.rotate = 0
         else:
             self.content.height = 0 
             self.content.opacity = 1 
             self.shevron.rotate = 0
-        self.update()
+        self.header_click()
 
     def set_switch(self, value):
         self._switch_ = value
