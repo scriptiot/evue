@@ -72,7 +72,6 @@ class ArcElement(FletBaseElement):
             else:
                 value = value
         self._arc_.stroke_width = value
-        self['arc_indic_width'] = "%spx" % value
 
     def set_arc_indic_color(self, value):
         self._arc_.color = value
@@ -88,7 +87,6 @@ class ArcElement(FletBaseElement):
             else:
                 value = value
         self._bg_.stroke_width = value
-        self['arc_bg_width'] = "%spx" % value
 
     def set_bg_start_angle(self, value):
         self['bg_start_angle'] = value
@@ -163,8 +161,8 @@ class ArcElement(FletBaseElement):
             "border-color": "transparent",
             "background-color": "transparent",
             "arc-indic-color": "#ff0000",
-            "arc-indic-width": "10px",
-            'arc-bg-width': "0px",
+            "arc-indic-width": 10,
+            'arc-bg-width': 0,
             'arc-bg-color': 'transparent',
         }
 
