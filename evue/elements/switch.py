@@ -18,9 +18,9 @@ class SwitchElement(FletBaseElement):
     def __init__(self, node, parent, draggable=False, sessionID=None):
         super().__init__(node, parent, draggable, sessionID=sessionID)
         self['value'] = False
-        self['switch-bg-color'] = "#808080"
-        self['switch-indic-color'] = "#01a2b1"
-        self['switch-knob-color'] = '#ffffff'
+        self['switch_bg_color'] = ""
+        self['switch_indic_color'] = "#01a2b1"
+        self['switch_knob_color'] = '#ffffff'
         self.create(parent, draggable)
         self.setParent(parent)
         self.events = self.default_events(self.id)
@@ -41,6 +41,7 @@ class SwitchElement(FletBaseElement):
         
         self.onValueChanged = onValueChanged
 
+
     def set_width(self, value):
         self._obj_.width = value
 
@@ -52,17 +53,19 @@ class SwitchElement(FletBaseElement):
 
     def set_border_radius(self, value):
         self._obj_.border_radius = value
+    
+    def set_background_color(self, value):
+        return super().set_background_color(value)
 
     def set_value(self, value):
         flag = FletBaseElement.bool(value)
         if flag:
             self._obj_.alignment = alignment.center_right
-            if self.background_color != self['switch-indic-color']:
-                self['switch-bg-color'] = self.background_color
-            self.background_color = self['switch-indic-color']
+            self._obj_.bgcolor = self['switch_indic_color']
         else:
             self._obj_.alignment = alignment.center_left
-            self.background_color = self['switch-bg-color']
+            self['switch_bg_color'] = self['background_color']
+            self._obj_.bgcolor = self['switch_bg_color']
 
     def set_disabled(self, value):
         self._obj_.disabled = FletBaseElement.bool(value)
@@ -70,11 +73,9 @@ class SwitchElement(FletBaseElement):
     def set_switch_indic_color(self, value):
         if self['value']:
             self.background_color = value
-        self['switch-indic-color']  = value
 
     def set_switch_knob_color(self, value):
         self._switch_.bgcolor = value
-        self['switch_knob_color']  = value
 
     @debounce(0.01)
     def handle_callback(self, func):
@@ -107,9 +108,9 @@ class SwitchElement(FletBaseElement):
     def style(self):
         ret = super().style
         ret.update({
-            'background-color': self['switch-bg-color'],
-            "switch-indic-color": self['switch-indic-color'],
-            "switch-knob-color": self['switch-knob-color']
+            'background-color': self['background_color'],
+            "switch-indic-color": self['switch_indic_color'],
+            "switch-knob-color": self['switch_knob_color']
         })
         return ret
 
