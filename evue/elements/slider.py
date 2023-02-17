@@ -107,6 +107,7 @@ class SliderElement(FletBaseElement):
         self['value'] = value
         if 'onValueChanged' in self and self['onValueChanged']:
             self['onValueChanged'](value)
+        self.updateSliderByValue(self['value'])
 
     def set_divisions(self, value):
         self._slider_.divisions = value
@@ -192,7 +193,7 @@ class SliderElement(FletBaseElement):
             "border-color": "transparent",
             "background-color": "#808080",
             "slider-indic-color": "#ff0000",
-            "slider-knob-color": "yellow"
+            "slider-knob-color": "#ffff00"
         }
 
     @classmethod
