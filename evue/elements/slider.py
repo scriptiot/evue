@@ -16,6 +16,7 @@ from ..debounce import debounce
 from .fletbaseelement import FletBaseElement
 from .widgets import BaseContainer
 from loguru import logger
+import traceback
 
 
 class SliderElement(FletBaseElement):
@@ -69,16 +70,15 @@ class SliderElement(FletBaseElement):
         self._inactive_.width = self._obj_.width - self._inactive_.left - 5
 
     def updateSliderByValue(self, value):
-        self._gd_.left = min(self._obj_.width * value / 100, self._obj_.width - self._knob_.width)
-        self.updateSlider()
+        try:
+            self._gd_.left = min(self._obj_.width * value / 100, self._obj_.width - self._knob_.width)
+            self.updateSlider()
+        except:
+            pass
 
     def set_width(self, value):
         self._obj_.width = value
-        try:
-            self.updateSliderByValue(self['value'])
-            logger.warning(self['value'])
-        except:
-            pass
+        self.updateSliderByValue(self['value'])
 
     def set_height(self, value):
         value = value + 10
@@ -95,7 +95,7 @@ class SliderElement(FletBaseElement):
         self._knob_.height = value 
         self._knob_.width = value
         
-        self.updateSlider()
+        self.updateSliderByValue(self['value'])
 
     def set_min(self, value):
         self['min'] = value
