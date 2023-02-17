@@ -17,12 +17,12 @@ from .textarea import TextareaElement
 from .text import TextElement
 from .counter import CounterElement
 from .button import ButtonElement
+from .fslider import FletSliderElement
 from .slider import SliderElement
 from .dialog import DialogElement
 from .checkbox import CheckboxElement
 from .switch import SwitchElement
 from .progress import ProgressElement
-from .slider import SliderElement
 from .combobox import ComboboxElement
 from .qrcode import QRCodeElement, qrcode_make_png
 from .canvas import CanvasElement
@@ -51,11 +51,11 @@ ElementClass = {
     "text": TextElement,
     "counter": CounterElement,
     "button": ButtonElement,
-    "slider": SliderElement,
     "dialog": DialogElement,
     "checkbox": CheckboxElement,
     "switch": SwitchElement,
     "progress": ProgressElement,
+    "fslider": FletSliderElement,
     "slider": SliderElement,
     "combobox": ComboboxElement,
     "qrcode": QRCodeElement,

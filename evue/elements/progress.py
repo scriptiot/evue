@@ -12,9 +12,10 @@ class ProgressElement(FletBaseElement):
 
     def __init__(self, node, parent, draggable=False, sessionID=None):
         super().__init__(node, parent, draggable, sessionID=sessionID)
+        self['value'] = 0
+        self['percent'] = 0
         self.create(parent, draggable)
         self.setParent(parent)
-        self['percent'] = 0
 
     def create(self, parent, draggable=False):
         self._progressbar_ = BaseContainer()
@@ -42,6 +43,8 @@ class ProgressElement(FletBaseElement):
         self.set_percent(value)
 
     def set_percent(self, value):
+        self['value'] = value
+        self['percent'] = value
         if self._obj_.width:
             self._progressbar_.width = self._obj_.width  * (value / 100)
 
