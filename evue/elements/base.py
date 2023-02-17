@@ -4,6 +4,7 @@ from typing import (
     Dict
 )
 from flet import icons
+from flet.types import TextAlign
 from PIL import ImageFont
 from loguru import logger
 import traceback
@@ -111,6 +112,12 @@ class BaseElement(Dict[str, Any], SessionObject):
                 return False
         else:
             return bool(value)
+
+    @classmethod
+    def textAlign(cls, value):
+        if value == TextAlign.NONE:
+            return "None"
+        return value
 
     @classmethod
     def alignment(cls, value):

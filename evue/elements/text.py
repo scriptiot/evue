@@ -121,7 +121,7 @@ class TextElement(FletBaseElement):
         style.update({
             "color": self._text_.color,
             "font-size": self._text_.size,
-            "text-align": self._text_.text_align
+            "text-align": FletBaseElement.textAlign(self._text_.text_align)
         })
         return style
 
