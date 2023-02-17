@@ -152,7 +152,7 @@ class ImageExplore(Container):
             for f in os.listdir(fdir):
                 _f = "%s/%s" % (fdir, f)
                 if os.path.isdir(_f):
-                    if f not in data:
+                    if _f not in data:
                         data[_f] = []
                     walk(_f)
                 else:
@@ -161,7 +161,7 @@ class ImageExplore(Container):
         for f in os.listdir(rootDir):
             _f = "%s/%s" % (rootDir, f)
             if os.path.isdir(_f):
-                if f not in data:
+                if _f not in data:
                     data[_f] = []
                 walk(_f)
             else:
@@ -249,16 +249,16 @@ class ImageExplore(Container):
         self.sidebar.update()
 
     def switch(self, e):
-            [setattr(v, "style", None) for v in self.sidebar.controls]
-            e.control.style = ButtonStyle(bgcolor="#35698f", color="#ffffff")
-            self.currentDirName = e.control.text
-            if e.control.text == "/":
-                key = self.assets_dir
-            else:
-                key = "%s%s" % (self.assets_dir, e.control.text)
-            if values := self.images.get(key):
-                self.show_images(values)
-    
+        [setattr(v, "style", None) for v in self.sidebar.controls]
+        e.control.style = ButtonStyle(bgcolor="#35698f", color="#ffffff")
+        self.currentDirName = e.control.text
+        if e.control.text == "/":
+            key = self.assets_dir
+        else:
+            key = "%s%s" % (self.assets_dir, e.control.text)
+        if values := self.images.get(key):
+            self.show_images(values)
+
     def showRootDir(self):
         self.sidebar.controls[0].style = ButtonStyle(bgcolor="#35698f", color="#ffffff")
         self.show_images(self.images[self.assets_dir])
