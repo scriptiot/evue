@@ -94,7 +94,8 @@ class SearchApp(UserControl):
     @debounce(0.3)
     def on_search(self, e: ControlEvent):
         icon = []
-        if (search := self.text.value) and len(search) >= 2:
+        search = self.text.value
+        if search and len(search) >= 2:
             count = 0
             for values in self.app.images.values():
                 for value in values:
@@ -256,7 +257,8 @@ class ImageExplore(Container):
             key = self.assets_dir
         else:
             key = "%s%s" % (self.assets_dir, e.control.text)
-        if values := self.images.get(key):
+        values = self.images.get(key)
+        if values:
             self.show_images(values)
 
     def showRootDir(self):

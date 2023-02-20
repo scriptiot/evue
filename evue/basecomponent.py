@@ -20,7 +20,7 @@ from typing import (
     Sequence,
 )
 
-class BaseComponent(Dict[str, Any], SessionObject):
+class BaseComponent(dict, SessionObject):
 
     def __init__(self, sessionID=None) -> None:
         super().__init__()

@@ -2,7 +2,6 @@
 import os
 from .fletbaseelement import FletBaseElement
 from .image import ImageElement
-from PIL import Image as PILImage
 from .widgets import BaseContainer
 from ..router import globalThis
 from io import BytesIO

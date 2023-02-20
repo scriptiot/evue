@@ -5,7 +5,7 @@ from typing import (
 )
 from loguru import logger
 
-class DataBinding(Dict[str, Any]):
+class DataBinding(dict):
 
     def __init__(self, data, parent=None) -> None:
         super().__init__()

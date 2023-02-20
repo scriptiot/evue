@@ -7,7 +7,6 @@ from flet import (
     alignment
 )
 from .fletbaseelement import FletBaseElement
-from PIL import Image as PILImage
 from .widgets import BaseContainer
 from loguru import logger
 from ..globalthis import globalThis

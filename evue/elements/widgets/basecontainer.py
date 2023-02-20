@@ -211,7 +211,6 @@ class EvueContainer(BaseContainer):
         return self._Container__content
 
     @content.setter
-    @beartype
     def content(self, value: Optional[Control]):
         
         def on_secondary_tap(e):

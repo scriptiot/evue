@@ -59,7 +59,7 @@ class ResponsiveRowElement(FletBaseElement):
                 col[items[i * 2]] = int(items[i * 2+1])
             self['col'] = col
         else:
-            self['col'] = col
+            self['col'] = value
 
     def set_attributes(self, node):
         super().set_attributes(node)

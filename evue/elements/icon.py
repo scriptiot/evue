@@ -48,7 +48,7 @@ class IconElement(FletBaseElement):
             if hasattr(icons, name):
                 self._icon_.name = getattr(icons, name)
         else:
-            self._icon_.name = name
+            self._icon_.name = value
 
     def set_size(self, value):
         self._icon_.size = int(value)

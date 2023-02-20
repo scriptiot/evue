@@ -8,33 +8,9 @@ from flet import (
     alignment,
     types
 )
-from PIL import Image as PILImage
 from .widgets import EvueContainer, BaseContainer
+from .image import getSize
 
-
-
-def getSize(src):
-    if src.endswith(".svg"):
-        with open(src, "r", encoding="utf-8") as f:
-            content = f.read()
-        
-        def getValue(key):
-            wIndex = content.index("%s=" % key)
-            i = wIndex
-            while content[i:i+4] != "px\" ":
-                i += 1
-            value = int(content[wIndex+len(key)+2:i])
-            return value
-        
-        width = getValue("width")
-        height = getValue("height")
-    else:
-        path = os.path.abspath("%s/%s" % (os.getcwd(), src))
-        img = PILImage.open(path)
-        size = img.size
-        width = size[0]
-        height = size[1]
-    return width, height
 
 class DivElement(FletBaseElement):
 

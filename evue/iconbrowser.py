@@ -94,7 +94,8 @@ class SearchApp(UserControl):
     @debounce(0.3)
     def on_search(self, e: ControlEvent):
         icon = []
-        if (search := self.text.value) and len(search) >= 2:
+        search = self.text.value
+        if search and len(search) >= 2:
             count = 0
             for values in self.app.icons.values():
                 for value in values:
@@ -182,7 +183,8 @@ class IconExplore(Container):
         def switch(e):
             [setattr(v, "style", None) for v in sidebar.controls]
             e.control.style = ButtonStyle(bgcolor="#35698f", color="#ffffff")
-            if values := self.icons.get(e.control.text):
+            values = self.icons.get(e.control.text)
+            if values:
                 self.show_icons(values)
 
         sidebar = ListView(

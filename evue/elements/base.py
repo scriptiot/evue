@@ -5,7 +5,7 @@ from typing import (
 )
 from flet import icons
 from flet.types import TextAlign
-from PIL import ImageFont
+# from PIL import ImageFont
 from loguru import logger
 import traceback
 from ..globalthis import globalThis
@@ -30,7 +30,7 @@ def getChinese(word:str):
     return ch_str, en_str
 
 
-class BaseElement(Dict[str, Any], SessionObject):
+class BaseElement(dict, SessionObject):
 
     enableUpdate = True
     
@@ -137,28 +137,28 @@ class BaseElement(Dict[str, Any], SessionObject):
         return None
 
     def measureText(self, value, size=20):
-        if self.sessionID is None:
-            return None, None
-        if self.page and self.page.theme and self.page.theme.font_family:
-            value = str(value)
-            try:
-                if self._font_ is None:
-                    self._font_ = ImageFont.truetype(self.page.theme.font_family, size=20)
-                if size:
-                    self._font_ = ImageFont.truetype(self.page.theme.font_family, size=size)
-                ch, en = getChinese(value)
-                if value == en:
-                    box = self._font_.getbbox(value)
-                    width = box[2] * 1.2
-                    height = box[3] * 1.7
-                else:
-                    chbox = self._font_.getbbox(ch)
-                    enbox = self._font_.getbbox(en)
-                    width = chbox[2] * 1.7 + enbox[2] * 1.2
-                    height = chbox[3] * 1.7
-                return width, height
-            except:
-                logger.warning(traceback.format_exc())
+        # if self.sessionID is None:
+        #     return None, None
+        # if self.page and self.page.theme and self.page.theme.font_family:
+        #     value = str(value)
+        #     try:
+        #         if self._font_ is None:
+        #             self._font_ = ImageFont.truetype(self.page.theme.font_family, size=20)
+        #         if size:
+        #             self._font_ = ImageFont.truetype(self.page.theme.font_family, size=size)
+        #         ch, en = getChinese(value)
+        #         if value == en:
+        #             box = self._font_.getbbox(value)
+        #             width = box[2] * 1.2
+        #             height = box[3] * 1.7
+        #         else:
+        #             chbox = self._font_.getbbox(ch)
+        #             enbox = self._font_.getbbox(en)
+        #             width = chbox[2] * 1.7 + enbox[2] * 1.2
+        #             height = chbox[3] * 1.7
+        #         return width, height
+        #     except:
+        #         logger.warning(traceback.format_exc())
         return None, None
 
     
