@@ -6,7 +6,7 @@ from flet import (
     AlertDialog,
     TextButton
 )
-from flet.buttons import *
+from flet_core.buttons import *
 from ..globalthis import globalThis
 from .widgets import BaseContainer
 

@@ -8,7 +8,7 @@ from flet import (
     Control,
     TextStyle
 )
-from flet.textfield import KeyboardTypeString
+from flet_core.textfield import KeyboardTypeString
 from loguru import logger
 from .fletbaseelement import FletBaseElement
 from .widgets import BaseContainer

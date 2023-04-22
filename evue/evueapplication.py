@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 import os
+import json
 import flet
 from flet import Page
 from flet.flet import *
-from flet.flet import _connect_internal
+from flet.flet import app
 from flet.flet import open_flet_view
 from .globalthis import globalThis, loadApp, loadProject
 from .fileserver import *
@@ -40,7 +41,7 @@ class EvueApplication(object):
         host=None,
         port=0,
         target=None,
-        permissions=None,
+        auth_token=None,
         view: AppViewer = FLET_APP,
         assets_dir=None,
         upload_dir=None,
@@ -48,64 +49,17 @@ class EvueApplication(object):
         route_url_strategy="hash",
         **kwargs
     ):
-        if target is None:
-            raise Exception("target argument is not specified")
-
-        conn = _connect_internal(
-            page_name=name,
-            host=host,
+        app(target,
+            name=name, 
+            host=host, 
             port=port,
-            is_app=True,
-            permissions=permissions,
-            session_handler=target,
+            view=view,
             assets_dir=assets_dir,
             upload_dir=upload_dir,
-            web_renderer=web_renderer,
-            route_url_strategy=route_url_strategy,
+            web_renderer="canvaskit",
+            route_url_strategy="path",
+            auth_token=auth_token
         )
-
-        url_prefix = os.getenv("FLET_DISPLAY_URL_PREFIX")
-        if url_prefix is not None:
-            print(url_prefix, conn.page_url)
-        else:
-            logger.info(f"App URL: {conn.page_url}")
-
-        logger.info("Connected to Flet app and handling user sessions...")
-
-        fvp = None
-
-        if (
-            (view == FLET_APP or view == FLET_APP_HIDDEN)
-            and not is_linux_server()
-            and url_prefix is None
-        ):
-            fvp = open_flet_view(conn.page_url, view == FLET_APP_HIDDEN)
-            self.pflet = fvp
-            self.connetion = conn
-            try:
-                fvp.wait()
-            except (Exception) as e:
-                pass
-        else:
-            if view == WEB_BROWSER and url_prefix is None:
-                open_in_browser(conn.page_url)
-            
-            terminate = threading.Event()
-
-            def exit_gracefully(signum, frame):
-                logger.info("Gracefully terminating Flet app...")
-                terminate.set()
-
-            signal.signal(signal.SIGINT, exit_gracefully)
-            signal.signal(signal.SIGTERM, exit_gracefully)
-            
-            try:
-                while True:
-                    if terminate.wait(1):
-                        break
-            except KeyboardInterrupt:
-                pass
-
         self.close()
 
     def close(self):

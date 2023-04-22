@@ -4,7 +4,7 @@ from math import pi
 from typing import Optional
 
 from flet import Column, Container, Icon, Row, Text, icons, padding
-from flet.control import Control
+from flet_core import Control
 from .basecontainer import BaseContainer
 
 class Collapsible(Column):

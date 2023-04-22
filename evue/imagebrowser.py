@@ -34,8 +34,8 @@ from flet import (
     border_radius,
     border
 )
-from flet.padding import Padding
-from flet.control_event import ControlEvent
+from flet_core.padding import Padding
+from flet_core.control_event import ControlEvent
 import shutil
 from os import startfile
 

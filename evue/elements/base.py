@@ -4,7 +4,7 @@ from typing import (
     Dict
 )
 from flet import icons
-from flet.types import TextAlign
+from flet_core.types import TextAlign
 # from PIL import ImageFont
 from loguru import logger
 import traceback

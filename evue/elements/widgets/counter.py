@@ -4,7 +4,7 @@ from math import pi
 from typing import Optional
 
 from flet import IconButton, Container, TextField, Text, Row, border, alignment, border_radius, icons, padding
-from flet.control import Control
+from flet_core import Control
 from .basecontainer import BaseContainer
 
 class Counter(BaseContainer):

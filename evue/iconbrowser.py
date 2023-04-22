@@ -27,8 +27,8 @@ from flet import (
     TextField,
     Switch
 )
-from flet.padding import Padding
-from flet.control_event import ControlEvent
+from flet_core.padding import Padding
+from flet_core.control_event import ControlEvent
 
 
 class debounce:  # noqa

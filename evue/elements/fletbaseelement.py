@@ -13,7 +13,7 @@ from flet import (
     RadialGradient,
     SweepGradient
 )
-from flet.alignment import Alignment
+from flet_core.alignment import Alignment
 from ..router import Router
 from ..globalthis import globalThis, require
 from ..pyrect import Rect
