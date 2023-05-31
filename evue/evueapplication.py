@@ -49,6 +49,7 @@ class EvueApplication(object):
         route_url_strategy="hash",
         **kwargs
     ):
+        logger.info(view)
         app(target,
             name=name, 
             host=host, 
@@ -81,25 +82,26 @@ class EvueApplication(object):
         if self.closeCallback:
             self.closeCallback()
 
-def startApp(path: str, closeCallback=None, threaded=False):
-    kwargs ={
+def startApp(path: str, closeCallback=None, threaded=False, **kwargs):
+    _kwargs ={
         "assets_dir": "./",
         "view": "desktop",
         "web_renderer": "canvas",
         "dir": "./"
     }
+    _kwargs.update(kwargs)
     loaded = False
     if os.path.exists(path) and path.endswith("app.py"):
         app = loadApp(path)
         if app:
-            if hasattr(app, "project"):
-                kwargs.update(app.project)
+            if hasattr(app.globalThis, "project"):
+                _kwargs.update(app.globalThis.project)
             loaded = True
 
     if os.path.exists(path) and path.endswith(".json"):
         with open(path, "r", encoding="utf-8") as f:
-            kwargs.update(json.load(f))
-        projectDir = kwargs["dir"]
+            _kwargs.update(json.load(f))
+        projectDir = _kwargs["dir"]
         if loaded == False:
             apppy = "%s/app.py" % (projectDir)
             if os.path.exists(apppy):
@@ -111,45 +113,45 @@ def startApp(path: str, closeCallback=None, threaded=False):
         loaded = True
 
     globalThis.rootcwd = os.getcwd()
-    if 'assets_dir' in kwargs:
-        assets_dir = os.path.normpath(os.path.abspath(kwargs['assets_dir']))
+    if 'assets_dir' in _kwargs:
+        assets_dir = os.path.normpath(os.path.abspath(_kwargs['assets_dir']))
     else:
         assets_dir = globalThis.rootcwd
-    kwargs['assets_dir'] = assets_dir
+    _kwargs['assets_dir'] = assets_dir
     globalThis.assets_dir = assets_dir
 
-    if 'host' in kwargs and kwargs['host'] and kwargs['host'] != "0.0.0.0":
-        host = kwargs['host']
+    if 'host' in _kwargs and _kwargs['host'] and _kwargs['host'] != "0.0.0.0":
+        host = _kwargs['host']
     else:
         host = get_host_ip()
-        kwargs['host'] = host
+        _kwargs['host'] = host
     globalThis.server_ip = host if host not in [None, "", "*"] else "127.0.0.1"
 
-    if 'port' in kwargs and kwargs['port']:
-        port = kwargs['port']
+    if 'port' in _kwargs and _kwargs['port']:
+        port = _kwargs['port']
         globalThis.port = port
     else:
         port = get_free_tcp_port()
         globalThis.port = port
-        kwargs['port'] = port
+        _kwargs['port'] = port
 
-
-    if "view" in kwargs:
-        if kwargs["view"] == "desktop":
-            kwargs['view'] = flet.FLET_APP
-        elif kwargs["view"] == "web":
-            kwargs['view']= flet.WEB_BROWSER
-            if 'web_renderer' in kwargs:
-                if kwargs['web_renderer'] == "canvas":
-                    kwargs['web_renderer'] = 'canvaskit'
+    logger.info(_kwargs)
+    if "view" in _kwargs:
+        if _kwargs["view"] == "desktop":
+            _kwargs['view'] = flet.FLET_APP
+        elif _kwargs["view"] == "web":
+            _kwargs['view']= flet.WEB_BROWSER
+            if 'web_renderer' in _kwargs:
+                if _kwargs['web_renderer'] == "canvas":
+                    _kwargs['web_renderer'] = 'canvaskit'
                 else:
-                    kwargs['web_renderer'] = 'html'
+                    _kwargs['web_renderer'] = 'html'
             else:
-                kwargs['web_renderer'] = 'canvaskit'
+                _kwargs['web_renderer'] = 'canvaskit'
 
-            globalThis.web_renderer = kwargs['web_renderer']
+            globalThis.web_renderer = _kwargs['web_renderer']
 
-    projectDir = kwargs["dir"]
+    projectDir = _kwargs["dir"]
     if os.path.exists(projectDir):
         t = Thread(target=startFileServer, args=(globalThis.port, globalThis.assets_dir))
         t.daemon = True
@@ -158,13 +160,13 @@ def startApp(path: str, closeCallback=None, threaded=False):
     if loaded:
         sapp = EvueApplication(closeCallback)
         globalThis.evueApp = sapp
-        kwargs['target'] = main
-        logger.info(kwargs)
+        _kwargs['target'] = main
+        logger.info(_kwargs)
         if threaded:
-            t = Thread(target=sapp.startFlet, kwargs=kwargs)
+            t = Thread(target=sapp.startFlet, _kwargs=_kwargs)
             t.daemon = True
             t.start()
         else:
-            sapp.startFlet(**kwargs)
+            sapp.startFlet(**_kwargs)
     else:
         logger.error("app loaded failed")
