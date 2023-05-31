@@ -110,7 +110,7 @@ class BaseContainer(Container):
                     border.BorderSide(self.border_bottom, self.border_bottom_color))
 
     def updateBorderRadius(self):
-        self.border_radius = border_radius.only(topLeft=self.border_radius_topLeft, topRight=self.border_radius_topRight, bottomLeft=self.border_radius_bottomLeft, bottomRight=self.border_radius_bottomRight)
+        self.border_radius = border_radius.only(top_left=self.border_radius_topLeft, top_right=self.border_radius_topRight, bottom_left=self.border_radius_bottomLeft, bottom_right=self.border_radius_bottomRight)
 
     def set_border_width(self, value):
         value = int(value)
