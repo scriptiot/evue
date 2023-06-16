@@ -11,7 +11,7 @@ def onCreate(config):
 def onDestroy():
     pass
 
-globalThis.project = {'assets_dir': './', 'host': None, 'port': None, 'view': 'desktop', 'web_renderer': 'canvas', 'dir': './evue_login', 'entry': 'evue_login', 'width': 1240, 'height': 900}
+globalThis.project = {'assets_dir': './', 'host': None, 'port': None, 'view': 'web', 'web_renderer': 'canvas', 'dir': './evue_login', 'entry': 'evue_login', 'width': 1240, 'height': 900}
 globalThis.project['assets_dir'] = os.path.dirname(__file__)
 globalThis.project['root_dir'] =  os.path.dirname(os.path.dirname(__file__))
 globalThis.project['dir'] = os.path.dirname(__file__)
